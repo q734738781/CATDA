@@ -1,0 +1,11 @@
+Catalyst properties:
+Property name| Type | Description
+Catalyst Name| Text | The reference name mentioned in the text
+
+Testing condition/metrics:
+Condition/Metric name| Type | Description
+Reaction Type | Text | An accurate, descriptive text for the type of the reaction, e.g., Oxidative Methane Coupling, Dry reforming of Methane, Steam reforming etc.
+Reaction Temperature| Numeric | The corresponding reaction temperature for  reaction
+Reaction Yield| Numeric | The reaction yield as reported in the test scenario
+Reaction Conversion| Numeric | The reaction conversion rate as reported in the test scenario
+Reaction Selectivity| Numeric | The reaction selectivity to target as reported in the test scenario

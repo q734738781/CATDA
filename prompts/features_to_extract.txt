@@ -1,0 +1,34 @@
+Catalyst properties:
+Property name| Type| Description
+Main Zeolite type| Text| The type of the Zeolite used for catalyst synthesis or its IZA code, e.g., ZSM-5, MCM-41 (material name), MFI, ITR (IZA code), etc.
+Main Zeolite SiO2/Al2O3 ratio| Numeric| The SiO2/Al2O3 ratio of the main Zeolite used for catalyst synthesis. It is double the ratio of Si/Al ratio. Notice to differenciate them.
+Secondary Zeolite type| Text| The type of the secondary Zeolite used for catalyst synthesis or its IZA code. It MUST be a type of Zeolite, NOT REGULAR CHEMICAL COMPOUND. Return this if more than one Zeolite is used for synthesis.
+Secondary Zeolite SiO2/Al2O3 ratio| Numeric| The SiO2/Al2O3 ratio of the secondary Zeolite used for catalyst synthesis. It is double the ratio of Si/Al ratio. Return this IF ONLY MORE THAN ONE Zeolite IS USED FOR SYNTHESIS.
+Main Zeolite content vs Secondary Zeolite content ratio | Text | The weight content ratio of Main Zeolite vs Secondary Zeolite, express as a:b (e.g. 50:20). Report this if more than one zeolite is used for synthesis the catalyst.
+Crystallinity| Numeric| Crystallinity of the zeolite. Must be a percentage, otherwise it is not a valid crystallinity value.
+Dopant substances| Dict| Doping substances of catalyst, express as {component: content}. The dopant is the substance that do not belong to Zeolite, silica or alumina. The metal and non-metal dopants should be included. Keep the unit the same expression as the text.
+Final Step Calcination temperature| Numeric| Temperature used in final step calcination
+Final Step Calcination time| Numeric| Duration of final step calcination
+Zeolite particle diameter| Numeric| Average particle diameter of the zeolite crystals. NOT THE SIZE OF CATALYST. Is typically ranged in nm~um scale.
+BET specific surface area| Numeric| Surface area measured using BET method
+Total pore volume| Numeric| Total pore volume per gram of material
+B/L acid ratio| Numeric| Ratio of Br?nsted to Lewis acid sites
+Acidity| Numeric| Acidity per gram of material
+
+For all above properties involving weight content, do not try to perform calculation your self. Just report as it is in the scenario text.
+
+Testing condition/metrics:
+Condition/Metric name| Type               | Description
+Aromatics Feed composition                    | Dict               | Feed composition for aromatics (Benzene, xylene, ethylbenzene, etc.) with components and their values.
+Reaction temperature                | Numeric            | Reaction temperature
+Reaction pressure                   | Numeric            | Reaction pressure
+(Weight/Volume) hourly Space velocity        | Numeric            | Feed flow rate normalized by catalyst weight or volume
+H2/Hydrocarbon molar ratio          | Numeric            | Molar ratio of hydrogen vs hydrocarbon in the feed.
+Ethylbenzene conversion      | Numeric            | Conversion rate of ethylbenzene, calculated as [(Moles of EB fed - Moles of EB in product) / Moles of EB fed] * 100
+Xylene loss                            | Numeric            | Amount of xylene lost during the process
+Xylene yield                  | Numeric            | Yield of xylene, calculated as (Moles of xylene in product / Moles of xylene in feed) * 100. Equals to 1-xylene loss.
+Notice, the Xylene loss and Xylene yield are sum up to 100% and converted to each other theoretically. But you need only report the one showed in the scenario text, do not try to calculate the other one your self.
+PX Selectivity          | Numeric            | Selectivity for p-xylene, also called xylene isomerization rate, calculated as Moles/Weight fraction of p-xylene in product(Fraction in all xylene).
+PX Equilibrium achieve rate | Numeric            | Equilibrium achieve rate of p-xylene, calculated as (Moles of p-xylene in product / Moles of p-xylene should be in equilibrium) * 100
+Product composition | Dict            | Product composition. If outlet composition is explicitly given, output composition with components and their values. If not, do not return this column.
+

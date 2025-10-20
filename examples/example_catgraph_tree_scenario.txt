@@ -1,0 +1,129 @@
+Catalyst: chem_C1
+  Name: 对比催化剂 C-1
+  Aliases: Catalyst C-1
+  Composition:
+    Pd: 0.8 wt%
+    Pt: 0.4 wt%
+  Properties:
+    pore_volume: 0.25 ml/g
+    surface_area: 152 m2/g
+
+Synthesis Pathway:
+
+  Step 1: EUO Ion Exchange and Calcination (ID: synth_step_2)
+    Procedure: 上述合成的沸石含有碱金属或碱土金属的阳离子,与铵阳离子进行交换,随后经过316℃~540°℃的空气中焙烧 1~10小时,此种形成酸性沸石是本领域中熟知的。
+    Inputs:
+      - Ammonium ion solution (Reagent)
+      - EUO分子筛 (Reactant)
+        Properties:
+          pore_volume: 0.19 mL/g
+          silicon_aluminum_molar_ratio: 63 molar ratio
+          surface_area: 449 m2/g
+    Outputs:
+      - 氢型EUO分子筛
+    Conditions:
+      atmosphere: Air atmosphere
+      temperature: 316~540 C
+      time: 1~10 h
+
+  Step 2: Support S-1 Mixing and Extrusion (ID: synth_step_3)
+    Procedure: 将步骤(1)所得的酸性EUO分子筛、氧化铝粉充分混合,加入66wt%的硝酸混捏成可塑的膏状物,挤成直径为 1.5mm 的圆柱条
+    Inputs:
+      - Water (Solvent/Mixing medium)
+      - 氢型EUO分子筛 (Component)
+      - 氧化铝粉 (Component)
+      - 硝酸 (Peptizing agent)
+        Properties:
+          concentration: 66 wt%
+    Outputs:
+      - Extruded EUO/Alumina paste
+        Properties:
+          diameter: 1.5 mm
+
+  Step 3: Support S-1 Drying (ID: synth_step_4)
+    Procedure: 经过110°℃干燥8h
+    Inputs:
+      - Extruded EUO/Alumina paste (Material to be dried)
+        Properties:
+          diameter: 1.5 mm
+    Outputs:
+      - Dried support intermediate
+    Conditions:
+      temperature: 110 C
+      time: 8 h
+
+  Step 4: Support S-1 Calcination (ID: synth_step_5)
+    Procedure: 然后在空气气氛中550℃焙烧6h
+    Inputs:
+      - Dried support intermediate (Material to be calcined)
+    Outputs:
+      - 载体 S-1
+        Composition:
+          Alumina: 40 wt%
+          EUO molecular sieve: 60 wt%
+        Properties:
+          diameter: 1.35 mm
+    Conditions:
+      atmosphere: Air atmosphere
+      temperature: 550 C
+      time: 6 h
+
+  Step 5: C-1 Impregnation (ID: synth_step_6)
+    Procedure: 使用含有 Pt(NH2)2C12 和 Pd(NH2)4(NO3)2 的溶液进行饱和浸渍
+    Inputs:
+      - Pd(NH2)4(NO3)2 solution (Precursor solution)
+      - Pt(NH2)2C12 solution (Precursor solution)
+      - 载体 S-1 (Support)
+        Composition:
+          Alumina: 40 wt%
+          EUO molecular sieve: 60 wt%
+        Properties:
+          diameter: 1.35 mm
+    Outputs:
+      - Impregnated support for C-1
+
+  Step 6: C-1 Drying (ID: synth_step_7)
+    Procedure: 然后在110℃下干燥6h
+    Inputs:
+      - Impregnated support for C-1 (Material to be dried)
+    Outputs:
+      - Dried intermediate for C-1
+    Conditions:
+      temperature: 110 C
+      time: 6 h
+
+  Step 7: C-1 Calcination (ID: synth_step_8)
+    Procedure: 在空气气氛中380℃焙烧6h
+    Inputs:
+      - Dried intermediate for C-1 (Material to be calcined)
+    Outputs:
+      - 对比催化剂 C-1
+        Composition:
+          Pd: 0.8 wt%
+          Pt: 0.4 wt%
+        Properties:
+          pore_volume: 0.25 ml/g
+          surface_area: 152 m2/g
+    Conditions:
+      atmosphere: Air atmosphere
+      temperature: 380 C
+      time: 6 h
+
+Testing Scenarios:
+
+  Scenario 1: Xylene isomerization performance evaluation of catalyst C-1 (ID: test_1)
+    Conditions:
+      catalyst_volume: 100 ml
+      diluent: 100 ml Quartz Sand
+      feed_composition: Ethylbenzene 7.9%, p-Xylene 0.1%, m-Xylene 70.2%, o-Xylene 21.8% volume %
+      hydrogen_hydrocarbon_mole_ratio: 2:1 ratio
+      pretreatment_atmosphere: H2 gas
+      pretreatment_duration: 4 h
+      pretreatment_temperature: 653 K
+      reaction_pressure: 1.0 MPa
+      reaction_temperature: 380 ℃
+      weight_hourly_space_velocity: 20 h-1
+    Results:
+      ethylbenzene_conversion_rate: 41.5 %
+      p_xylene_in_total_xylene: 23.8 %
+      xylene_loss: 3.8 %

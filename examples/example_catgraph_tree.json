@@ -1,0 +1,556 @@
+{
+  "catgraph_tree": {
+    "catalyst_id": "chem_C1",
+    "nodes": [
+      {
+        "id": "synth_step_8",
+        "type": "synthesis",
+        "name": "C-1 Calcination",
+        "procedure": "在空气气氛中380℃焙烧6h",
+        "conditions": {
+          "temperature": {
+            "value": 380,
+            "unit": "C"
+          },
+          "time": {
+            "value": 6,
+            "unit": "h"
+          },
+          "atmosphere": {
+            "value": "Air",
+            "unit": "atmosphere"
+          }
+        },
+        "source_text": "[0036] ...在空气气氛中380℃焙烧6h,制得含0.4wt% Pt、0.8wt% Pd 的本发明对比催化剂,编号为 C-1...",
+        "synthesis_level": 7
+      },
+      {
+        "id": "synth_step_4",
+        "type": "synthesis",
+        "name": "Support S-1 Drying",
+        "procedure": "经过110°℃干燥8h",
+        "conditions": {
+          "temperature": {
+            "value": 110,
+            "unit": "C"
+          },
+          "time": {
+            "value": 8,
+            "unit": "h"
+          }
+        },
+        "source_text": "[0035] ...经过110°℃干燥8h...",
+        "synthesis_level": 3
+      },
+      {
+        "id": "synth_step_7",
+        "type": "synthesis",
+        "name": "C-1 Drying",
+        "procedure": "然后在110℃下干燥6h",
+        "conditions": {
+          "temperature": {
+            "value": 110,
+            "unit": "C"
+          },
+          "time": {
+            "value": 6,
+            "unit": "h"
+          }
+        },
+        "source_text": "[0036] ...然后在110℃下干燥6h...",
+        "synthesis_level": 6
+      },
+      {
+        "id": "synth_step_6",
+        "type": "synthesis",
+        "name": "C-1 Impregnation",
+        "procedure": "使用含有 Pt(NH2)2C12 和 Pd(NH2)4(NO3)2 的溶液进行饱和浸渍",
+        "conditions": {},
+        "source_text": "[0036] (3)取200 克步骤(2)得到的载体,使用含有 Pt(NH2)2C12 和 Pd (NH2)4(NO3)2 的溶液进行饱和浸渍...",
+        "synthesis_level": 5
+      },
+      {
+        "id": "synth_step_2",
+        "type": "synthesis",
+        "name": "EUO Ion Exchange and Calcination",
+        "procedure": "上述合成的沸石含有碱金属或碱土金属的阳离子,与铵阳离子进行交换,随后经过316℃~540°℃的空气中焙烧 1~10小时,此种形成酸性沸石是本领域中熟知的。",
+        "conditions": {
+          "temperature": {
+            "value": "316~540",
+            "unit": "C"
+          },
+          "time": {
+            "value": "1~10",
+            "unit": "h"
+          },
+          "atmosphere": {
+            "value": "Air",
+            "unit": "atmosphere"
+          }
+        },
+        "source_text": "[0034] 上述合成的沸石含有碱金属或碱土金属的阳离子,与铵阳离子进行交换,随后经过316℃~540°℃的空气中焙烧 1~10小时,此种形成酸性沸石是本领域中熟知的。",
+        "synthesis_level": 1
+      },
+      {
+        "id": "chem_C1_impregnated",
+        "type": "chemical",
+        "name": "Impregnated support for C-1",
+        "aliases": [],
+        "properties": {}
+      },
+      {
+        "id": "synth_step_3",
+        "type": "synthesis",
+        "name": "Support S-1 Mixing and Extrusion",
+        "procedure": "将步骤(1)所得的酸性EUO分子筛、氧化铝粉充分混合,加入66wt%的硝酸混捏成可塑的膏状物,挤成直径为 1.5mm 的圆柱条",
+        "conditions": {},
+        "source_text": "[0035] (2)将步骤(1)所得的酸性EUO分子筛、氧化铝粉充分混合,加入66wt%的硝酸混捏成可塑的膏状物,挤成直径为 1.5mm 的圆柱条",
+        "synthesis_level": 2
+      },
+      {
+        "id": "chem_NH4_ion_solution",
+        "type": "chemical",
+        "name": "Ammonium ion solution",
+        "aliases": [],
+        "properties": {}
+      },
+      {
+        "id": "chem_C1_dried",
+        "type": "chemical",
+        "name": "Dried intermediate for C-1",
+        "aliases": [],
+        "properties": {}
+      },
+      {
+        "id": "chem_EUO_raw",
+        "type": "chemical",
+        "name": "EUO分子筛",
+        "aliases": [
+          "EUO molecular sieve"
+        ],
+        "properties": {
+          "silicon_aluminum_molar_ratio": {
+            "value": 63,
+            "unit": "molar ratio"
+          },
+          "surface_area": {
+            "value": 449,
+            "unit": "m2/g"
+          },
+          "pore_volume": {
+            "value": 0.19,
+            "unit": "mL/g"
+          }
+        }
+      },
+      {
+        "id": "chem_S1_paste",
+        "type": "chemical",
+        "name": "Extruded EUO/Alumina paste",
+        "aliases": [],
+        "properties": {
+          "diameter": {
+            "value": 1.5,
+            "unit": "mm"
+          }
+        }
+      },
+      {
+        "id": "chem_S1",
+        "type": "chemical",
+        "name": "载体 S-1",
+        "aliases": [
+          "S-1 support"
+        ],
+        "composition": {
+          "EUO molecular sieve": {
+            "value": 60,
+            "unit": "wt%"
+          },
+          "Alumina": {
+            "value": 40,
+            "unit": "wt%"
+          }
+        },
+        "properties": {
+          "diameter": {
+            "value": 1.35,
+            "unit": "mm"
+          }
+        }
+      },
+      {
+        "id": "synth_step_5",
+        "type": "synthesis",
+        "name": "Support S-1 Calcination",
+        "procedure": "然后在空气气氛中550℃焙烧6h",
+        "conditions": {
+          "temperature": {
+            "value": 550,
+            "unit": "C"
+          },
+          "time": {
+            "value": 6,
+            "unit": "h"
+          },
+          "atmosphere": {
+            "value": "Air",
+            "unit": "atmosphere"
+          }
+        },
+        "source_text": "[0035] ...然后在空气气氛中550℃焙烧6h,制得直径为 1.35mm 的载体记做 S-1...",
+        "synthesis_level": 4
+      },
+      {
+        "id": "chem_Al2O3_powder",
+        "type": "chemical",
+        "chemical formula": "Al2O3",
+        "name": "氧化铝粉",
+        "aliases": [
+          "Alumina powder"
+        ],
+        "properties": {}
+      },
+      {
+        "id": "chem_EUO_H",
+        "type": "chemical",
+        "name": "氢型EUO分子筛",
+        "aliases": [
+          "Acidic EUO molecular sieve"
+        ],
+        "properties": {}
+      },
+      {
+        "id": "chem_Pt_NH2_2_Cl2_solution",
+        "type": "chemical",
+        "name": "Pt(NH2)2C12 solution",
+        "aliases": [],
+        "properties": {}
+      },
+      {
+        "id": "chem_C1",
+        "type": "chemical",
+        "name": "对比催化剂 C-1",
+        "aliases": [
+          "Catalyst C-1"
+        ],
+        "composition": {
+          "Pt": {
+            "value": 0.4,
+            "unit": "wt%"
+          },
+          "Pd": {
+            "value": 0.8,
+            "unit": "wt%"
+          }
+        },
+        "properties": {
+          "surface_area": {
+            "value": 152,
+            "unit": "m2/g"
+          },
+          "pore_volume": {
+            "value": 0.25,
+            "unit": "ml/g"
+          }
+        },
+        "is_tested_catalyst": true
+      },
+      {
+        "id": "chem_HNO3",
+        "type": "chemical",
+        "chemical formula": "HNO3",
+        "name": "硝酸",
+        "aliases": [
+          "Nitric acid"
+        ],
+        "properties": {
+          "concentration": {
+            "value": 66,
+            "unit": "wt%"
+          }
+        }
+      },
+      {
+        "id": "chem_Pd_NH2_4_NO3_2_solution",
+        "type": "chemical",
+        "name": "Pd(NH2)4(NO3)2 solution",
+        "aliases": [],
+        "properties": {}
+      },
+      {
+        "id": "chem_S1_dried",
+        "type": "chemical",
+        "name": "Dried support intermediate",
+        "aliases": [],
+        "properties": {}
+      },
+      {
+        "id": "chem_H2O",
+        "type": "chemical",
+        "chemical formula": "H2O",
+        "name": "Water",
+        "aliases": [
+          "水"
+        ],
+        "properties": {}
+      },
+      {
+        "id": "test_1",
+        "type": "testing",
+        "catalyst_id": "chem_C1",
+        "description": "Xylene isomerization performance evaluation of catalyst C-1",
+        "conditions_json": {
+          "catalyst_volume": {
+            "value": 100,
+            "unit": "ml"
+          },
+          "diluent": {
+            "value": 100,
+            "unit": "ml Quartz Sand"
+          },
+          "feed_composition": {
+            "value": "Ethylbenzene 7.9%, p-Xylene 0.1%, m-Xylene 70.2%, o-Xylene 21.8%",
+            "unit": "volume %"
+          },
+          "pretreatment_temperature": {
+            "value": 653,
+            "unit": "K"
+          },
+          "pretreatment_duration": {
+            "value": 4,
+            "unit": "h"
+          },
+          "pretreatment_atmosphere": {
+            "value": "H2",
+            "unit": "gas"
+          },
+          "reaction_pressure": {
+            "value": 1.0,
+            "unit": "MPa"
+          },
+          "weight_hourly_space_velocity": {
+            "value": 20,
+            "unit": "h-1"
+          },
+          "hydrogen_hydrocarbon_mole_ratio": {
+            "value": "2:1",
+            "unit": "ratio"
+          },
+          "reaction_temperature": {
+            "value": 380,
+            "unit": "℃"
+          }
+        },
+        "results_json": {
+          "p_xylene_in_total_xylene": {
+            "value": 23.8,
+            "unit": "%"
+          },
+          "xylene_loss": {
+            "value": 3.8,
+            "unit": "%"
+          },
+          "ethylbenzene_conversion_rate": {
+            "value": 41.5,
+            "unit": "%"
+          }
+        },
+        "source_text": "催化剂编号 C-1; 反应压力,MPa 1.0; WHSV, h⁻¹ 20; 氢烃摩尔比 2:1; 反应温度,℃ 380; pX/ΣX, % 23.8; 二甲苯损失,% 3.8; 乙苯转化率,% 41.5 (from Table 3). General setup: 实验是在中试装置上完成,催化剂体积100ml,用 100ml 石英砂稀释后装填入反应器,催化剂在进料前在653K氢气存在下还原 4h. 原料性质见表1: 乙苯 7.9%, 对二甲苯 0.1%, 间二甲苯 70.2%, 邻二甲苯 21.8% (体积百分含量)."
+      }
+    ],
+    "edges": [
+      {
+        "id": "edge_output_synth_step_4_chem_S1_dried",
+        "type": "synthesis_output",
+        "source_id": "synth_step_4",
+        "target_id": "chem_S1_dried",
+        "properties": {
+          "form": "Dried solid"
+        }
+      },
+      {
+        "id": "edge_input_chem_EUO_raw_synth_step_2",
+        "type": "synthesis_input",
+        "source_id": "chem_EUO_raw",
+        "target_id": "synth_step_2",
+        "properties": {
+          "role": "Reactant"
+        }
+      },
+      {
+        "id": "edge_input_chem_S1_paste_synth_step_4",
+        "type": "synthesis_input",
+        "source_id": "chem_S1_paste",
+        "target_id": "synth_step_4",
+        "properties": {
+          "role": "Material to be dried"
+        }
+      },
+      {
+        "id": "edge_input_chem_EUO_H_synth_step_3",
+        "type": "synthesis_input",
+        "source_id": "chem_EUO_H",
+        "target_id": "synth_step_3",
+        "properties": {
+          "role": "Component"
+        }
+      },
+      {
+        "id": "edge_output_synth_step_3_chem_S1_paste",
+        "type": "synthesis_output",
+        "source_id": "synth_step_3",
+        "target_id": "chem_S1_paste",
+        "properties": {
+          "form": "Extruded paste"
+        }
+      },
+      {
+        "id": "edge_input_chem_Pd_NH2_4_NO3_2_solution_synth_step_6",
+        "type": "synthesis_input",
+        "source_id": "chem_Pd_NH2_4_NO3_2_solution",
+        "target_id": "synth_step_6",
+        "properties": {
+          "role": "Precursor solution"
+        }
+      },
+      {
+        "id": "edge_output_synth_step_5_chem_S1",
+        "type": "synthesis_output",
+        "source_id": "synth_step_5",
+        "target_id": "chem_S1",
+        "properties": {
+          "form": "Calcined support"
+        }
+      },
+      {
+        "id": "edge_input_chem_C1_dried_synth_step_8",
+        "type": "synthesis_input",
+        "source_id": "chem_C1_dried",
+        "target_id": "synth_step_8",
+        "properties": {
+          "role": "Material to be calcined"
+        }
+      },
+      {
+        "id": "edge_output_synth_step_8_chem_C1",
+        "type": "synthesis_output",
+        "source_id": "synth_step_8",
+        "target_id": "chem_C1",
+        "properties": {
+          "form": "Calcined catalyst"
+        }
+      },
+      {
+        "id": "edge_input_chem_C1_impregnated_synth_step_7",
+        "type": "synthesis_input",
+        "source_id": "chem_C1_impregnated",
+        "target_id": "synth_step_7",
+        "properties": {
+          "role": "Material to be dried"
+        }
+      },
+      {
+        "id": "edge_input_chem_Al2O3_powder_synth_step_3",
+        "type": "synthesis_input",
+        "source_id": "chem_Al2O3_powder",
+        "target_id": "synth_step_3",
+        "properties": {
+          "role": "Component"
+        }
+      },
+      {
+        "id": "edge_input_chem_S1_synth_step_6",
+        "type": "synthesis_input",
+        "source_id": "chem_S1",
+        "target_id": "synth_step_6",
+        "properties": {
+          "role": "Support",
+          "amount": {
+            "value": 200,
+            "unit": "g"
+          }
+        }
+      },
+      {
+        "id": "edge_input_chem_S1_dried_synth_step_5",
+        "type": "synthesis_input",
+        "source_id": "chem_S1_dried",
+        "target_id": "synth_step_5",
+        "properties": {
+          "role": "Material to be calcined"
+        }
+      },
+      {
+        "id": "edge_output_synth_step_2_chem_EUO_H",
+        "type": "synthesis_output",
+        "source_id": "synth_step_2",
+        "target_id": "chem_EUO_H",
+        "properties": {
+          "form": "Calcined solid"
+        }
+      },
+      {
+        "id": "edge_input_chem_Pt_NH2_2_Cl2_solution_synth_step_6",
+        "type": "synthesis_input",
+        "source_id": "chem_Pt_NH2_2_Cl2_solution",
+        "target_id": "synth_step_6",
+        "properties": {
+          "role": "Precursor solution"
+        }
+      },
+      {
+        "id": "edge_input_chem_H2O_synth_step_3",
+        "type": "synthesis_input",
+        "source_id": "chem_H2O",
+        "target_id": "synth_step_3",
+        "properties": {
+          "role": "Solvent/Mixing medium"
+        }
+      },
+      {
+        "id": "edge_output_synth_step_7_chem_C1_dried",
+        "type": "synthesis_output",
+        "source_id": "synth_step_7",
+        "target_id": "chem_C1_dried",
+        "properties": {
+          "form": "Dried solid"
+        }
+      },
+      {
+        "id": "edge_output_synth_step_6_chem_C1_impregnated",
+        "type": "synthesis_output",
+        "source_id": "synth_step_6",
+        "target_id": "chem_C1_impregnated",
+        "properties": {
+          "form": "Impregnated solid"
+        }
+      },
+      {
+        "id": "edge_input_chem_HNO3_synth_step_3",
+        "type": "synthesis_input",
+        "source_id": "chem_HNO3",
+        "target_id": "synth_step_3",
+        "properties": {
+          "role": "Peptizing agent"
+        }
+      },
+      {
+        "id": "edge_input_chem_NH4_ion_solution_synth_step_2",
+        "type": "synthesis_input",
+        "source_id": "chem_NH4_ion_solution",
+        "target_id": "synth_step_2",
+        "properties": {
+          "role": "Reagent"
+        }
+      },
+      {
+        "id": "edge_tested_chem_C1_test_1",
+        "type": "tested_in",
+        "source_id": "chem_C1",
+        "target_id": "test_1",
+        "properties": {}
+      }
+    ]
+  }
+}

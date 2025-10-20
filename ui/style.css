@@ -1,0 +1,71 @@
+/* style.css */
+
+/* Custom background colors for chat bubbles */
+.message.user {
+    background-color: #fef9e7 !important; /* Light yellow for user */
+}
+
+.message.bot {
+    background-color: #e8f5e9 !important; /* Light green for assistant */
+}
+
+/* Style for the tool call/result messages (rendered as bot messages but can be styled) */
+/* We might need to wrap the markdown in a div with a specific class in gradio_app.py if this doesn't work directly */
+/* For now, let's assume the default bot class is used and try to override */
+
+/* Let's try targeting the markdown content specifically if possible */
+/* This is a bit speculative without inspecting Gradio's exact output structure */
+.prose .message.bot code {
+    /* Example: give code blocks inside bot messages a slightly different background */
+    /* background-color: #f0f0f0; */
+}
+
+/* Style for the overall chat container or specific elements if needed */
+.gradio-container {
+    /* Example: background-color: #fafafa; */
+}
+
+/* Note: The guide suggested .gr-chat-message-user, .gr-chat-message-ai, .gr-chat-message-system */
+/* These class names might depend on the Gradio version. The above .message.user/bot are common */
+/* Let's add the guide's suggestions too for broader compatibility */
+
+.gr-chat-message-user   { background-color: #fef9e7 !important; }
+.gr-chat-message-ai     { background-color: #e8f5e9 !important; }
+/* For system messages (tool calls), we need Gradio to assign a specific class */
+/* Since we added them as bot messages (ai_msg), they might inherit .gr-chat-message-ai */
+/* If we need a distinct background for tool calls, we might need to adjust how they are added or use custom HTML/CSS */
+.gr-chat-message-system { background-color: #f3f4f6 !important; } /* Greyish for tool calls - IF Gradio supports this class */ 
+
+/* --- REMOVED Styles below, relying on theme --- */
+
+/* General message styling (font) - REMOVED */
+/* .message { */
+/*     font-family: sans-serif !important;  */
+/* } */
+/* .message p { */
+/*     font-family: sans-serif !important; /* Apply to paragraphs within messages */ 
+/* } */
+/* Try more specific selectors targeting theme classes + paragraphs - REMOVED */
+/* .gr-chat-message-user p, */
+/* .gr-chat-message-ai p { */
+/*     font-family: sans-serif !important; */
+/* } */
+
+/* --- Style for Input Textarea - REMOVED --- */
+/* textarea[data-testid="textbox"] { */
+/*     font-family: sans-serif !important; */
+/* } */
+
+/* User message alignment (left) - REMOVED */
+/* .message.user { */
+/*     margin-right: auto; /* Pushes others away */ 
+/*     margin-left: 0; /* Ensures it stays left */ 
+/*     /* text-align: left; /* Generally not needed if container is aligned */ 
+/* } */
+
+/* Bot message alignment (right) - REMOVED */
+/* .message.bot { */
+/*     margin-left: auto; /* Pushes others away */ 
+/*     margin-right: 0; /* Ensures it stays right */ 
+/*     /* text-align: right; /* Generally not needed if container is aligned */ 
+/* } */ 
