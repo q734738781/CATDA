@@ -247,3 +247,5 @@ CATDA/
 ## Contributing
 
 Contributions are welcome! Please open issues/PRs for improvements.
+
+We are currently working ahead for a multimodel version of CATDA, CATDA-MM. If you are interested in the project and want to collaborate, you may contact the corresponding author of the paper or me for further work.
