@@ -1,7 +1,8 @@
 # CATDA (Corpus-aware Automated Text-to-Graph Catalyst Discovery Agent)
 
 **Accepted Paper in ACS Catalysis**
-DOI link:https://doi.org/10.1021/acscatal.5c06431 (Available after proof)
+
+DOI link: https://doi.org/10.1021/acscatal.5c06431 (Available after proof)
 
 ## Quickstart: Usage and Environment
 
