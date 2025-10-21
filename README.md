@@ -2,7 +2,7 @@
 
 **Accepted Paper in ACS Catalysis**
 
-DOI link: https://doi.org/10.1021/acscatal.5c06431 (Available after proof)
+DOI link: https://doi.org/10.1021/acscatal.5c06431 
 
 ## Quickstart: Usage and Environment
 
@@ -39,9 +39,10 @@ $env:FIELD_RESOLVER_REGEX_MAP = "D:\configs\field_regex.json"
 
 ### 0) Preprocess: Convert PDFs to Markdown (recommended)
 
-CATDA works best when articles are pre-converted to clean Markdown. We recommend using the programs that have at least or better ability than Azure OCR Markdown pipeline already implemented in `CATDA/PDF_TO_MD/PaperExtract.py`. 
+CATDA works only with text file and works best when articles are pre-converted to clean Markdowns. We recommend using the programs that have at least or better ability than Azure OCR Markdown pipeline already implemented in `CATDA/PDF_TO_MD/PaperExtract.py`. Alternatives includes PaddleOCR, DeepseekOCR and many other recent ones that use transformer structures for end-to-end pdf-to-md pipelines. We have provided an example code for such converion.
 
-- Recommended engine: `azuremarkdown` (Azure Document Intelligence → Markdown). You can also change to other (opensource) OCR engines that performs better. Also, we provided some simple alternatives, but from our early testing, they struggle to treat the complex layout for scientific documents.
+- Recommended engine for our code: `azuremarkdown` (Azure Document Intelligence → Markdown).
+- You can also change to other (opensource) OCR engines that performs better. Also, we provided some simple alternatives, but from our early testing, they struggle to treat the complex layout for scientific documents.
 - Alternatives (also available in `PaperExtract.py`):
   - `azure` (Azure layout JSON + our own text assembly)
   - `fitz` (text-based PDFs only, via PyMuPDF)
