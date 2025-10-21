@@ -46,7 +46,7 @@ CATDA works only with text file and works best when articles are pre-converted t
 - Alternatives (also available in `PaperExtract.py`):
   - `azure` (Azure layout JSON + our own text assembly)
   - `fitz` (text-based PDFs only, via PyMuPDF)
-  - `paddle` (PaddleOCR for image-based PDFs)
+  - `paddle` (Old PaddleOCR for image-based PDFs (not the most recent PaddleOCR model! That is much better)
   - `nougat` (math-heavy papers; CLI or API)
 
 Setup Azure keys first in `PaperPreprocess/src/settings.py`:
