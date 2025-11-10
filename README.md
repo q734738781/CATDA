@@ -39,7 +39,7 @@ $env:FIELD_RESOLVER_REGEX_MAP = "D:\configs\field_regex.json"
 
 ### 0) Preprocess: Convert PDFs to Markdown
 
-CATDA works with only test and best when articles are pre-converted to clean Markdown. We recommend using the programs that have at least or better ability than Azure OCR Markdown pipeline already implemented in `CATDA/PDF_TO_MD/PaperExtract.py`. 
+CATDA works with only text and best when articles are pre-converted to clean Markdown. We recommend using the programs that have at least or better ability than Azure OCR Markdown pipeline already implemented in `CATDA/PDF_TO_MD/PaperExtract.py`. 
 
 - Recommended engine: `azuremarkdown` (Azure Document Intelligence → Markdown). You can also change to other (opensource) OCR engines that performs better. Also, we provided some simple alternatives, but from our early testing, they struggle to treat the complex layout for scientific documents.
 - Alternatives (also available in `PaperExtract.py`):
