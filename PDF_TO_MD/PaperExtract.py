@@ -12,9 +12,9 @@ import fitz
 import pandas as pd
 import requests
 from PIL import Image
-from PaperPreprocess.src.parseutils import is_image_based_pdf
-from PaperPreprocess.src.direct_parser import extract_text_blocks_with_fitz
-from PaperPreprocess.src.settings import (ocr_settings, predefined_section_names, substitute_special_char,
+from PDF_TO_MD.parseutils import is_image_based_pdf
+from PDF_TO_MD.direct_parser import extract_text_blocks_with_fitz
+from PDF_TO_MD.settings import (ocr_settings, predefined_section_names, substitute_special_char,
                                           azure_api_key,azure_api_endpoint, azure_auto_load, azure_output_dpi)
 
 # Global variable to store the layout ocr engine
@@ -172,7 +172,7 @@ class PaddleExtractor(BaseExtractor):
             print('Layout ocr engine loaded')
 
     def _text_block_extract(self):
-        from PaperPreprocess.src.image_parser import extract_text_with_ppstructure
+        from PDF_TO_MD.image_parser import extract_text_with_ppstructure
         self.text_blocks, paper_section_titles, self.ocr_res = extract_text_with_ppstructure(self.paperpath,
                                                                                              layout_ocr_engine)
         # Extend the section titles
