@@ -37,9 +37,9 @@ $env:FIELD_RESOLVER_REGEX_MAP = "D:\configs\field_regex.json"
 
 ## Workflow
 
-### 0) Preprocess: Convert PDFs to Markdown
+### 0) Preprocess: Convert PDFs to Markdown (recommended)
 
-CATDA works with only text and best when articles are pre-converted to clean Markdown. We recommend using the programs that have at least or better ability than Azure OCR Markdown pipeline already implemented in `CATDA/PDF_TO_MD/PaperExtract.py`. 
+CATDA works best when articles are pre-converted to clean Markdown. We recommend using the programs that have at least or better ability than Azure OCR Markdown pipeline already implemented in `CATDA/PDF_TO_MD/PaperExtract.py`. 
 
 - Recommended engine: `azuremarkdown` (Azure Document Intelligence → Markdown). You can also change to other (opensource) OCR engines that performs better. Also, we provided some simple alternatives, but from our early testing, they struggle to treat the complex layout for scientific documents.
 - Alternatives (also available in `PaperExtract.py`):
@@ -71,8 +71,7 @@ for pdf_path in glob.glob(os.path.join(src_dir, "*.pdf")):
 Notes:
 - Downstream CATDA extraction expects your converted files under one root directory; pass `--file-ext .txt` when using the txt outputs (default is `.md`).
 - Optional system/extras: `azure-ai-documentintelligence`, `pymupdf`, `opencv-python`, and (for `paddle`/`camelot`) additional native deps may be required.
-- The paddle code provided was designed for old paddle ocr versions and performs bad. It is recommended to rewrite to code according to official demo to use the latest PaddleOCR engine.
-- 
+
 ### 1) Extract CatGraph and/or Generate ML Dataset
 
 Command (run from the project root):

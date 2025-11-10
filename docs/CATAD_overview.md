@@ -49,15 +49,13 @@ CatGraph Extractor ingests markdown, plain-text or PDF-converted text and emits:
 *Implemented in* `extract_main.py` *via* [`generate_ml_dataset`](../tools/ml_dataset/generate_dataset.py)
 
 ### 3.1 Purpose
-The generator converts each CatGraph JSON into one or more instruction-response pairs.  These pairs teach an LLM how to reason over catalysis-specific structures, enabling:
-* few-shot prompting for property prediction;
-* supervised fine-tuning (SFT) or reinforcement learning (RLHF) for catalytic-knowledge mastery.
+The generator converts each CatGraph JSON into ML Datasets for downstream applications.
 
 ### 3.2 Operation Modes
 There are two entry points:
 
 1. **Inline mode** (`--mode both`) – run immediately after a successful extraction.  Useful for end-to-end pipelines.
-2. **Standalone mode** (`--mode generate-ml-only`) – scan an existing `output_dir/graph/` folder for `*_output.json` files and (re)generate dataset rows.  Facilitates iterative dataset curation without re-extracting graphs.
+2. **Standalone mode** (`--mode generate-ml-only`) – scan an existing catgraphs from `output_dir/graph/` folder for `*_output.json` files and (re)generate dataset rows.  Facilitates iterative dataset curation without re-extracting graphs.
 
 ### 3.3 Dataset Schema (excerpt)
 | Field | Type | Description |
@@ -90,22 +88,3 @@ CatAgent can be deployed:
 * **Interactively** – CLI or Jupyter notebooks for ad-hoc Q&A.
 * **As a micro-service** – behind a FastAPI/Gradio endpoint for lab-assistant chatbots.
 * **In batch** – automated literature triage, hypothesis scoring, etc.
-
----
-
-## 5  Reproducibility & Extensibility
-* **Configuration by CLI & ENV-vars** – model names, temperatures, Neo4j credentials and cache paths are parameterised.
-* **Plug-and-play LLMs** – `models.get_model` currently supports OpenAI, DeepSeek and Google Gemini families; adding local models (e.g. Mistral, Llama 3) requires only an additional loader.
-* **Schema evolution** – `neo4j_schema.md` documents versioned graph schemas; CatGraph extractor supports forward-compatible node/edge additions.
-
----
-
-## 6  Suggested Citation
-> *If you build upon CatData Extractor v3, please cite:*
->
-> *Zhou et al.*, "Automated Knowledge-Graph Construction and LLM-Augmented Reasoning for Heterogeneous Catalysis", *Submitted to Journal of Catalysis Informatics*, 2024.
-
----
-
-## 7  Acknowledgements
-This work was funded by the **XYZ Catalysis Center** and leverages open-source software from the LangChain, Neo4j and HuggingFace communities. 
