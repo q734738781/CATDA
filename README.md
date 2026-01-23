@@ -41,7 +41,7 @@ OpenRouter note:
 ## Workflow
 
 ### 0) Preprocess: Convert PDFs to Markdown (client only)
-## Note: there seems to be an issue that PaddleOCR client may have confict with current conversation agent's similar keyword fetch. Please test and consider if you should create a new environment seperately for preprocess only. **
+**Note: there seems to be an issue that PaddleOCR client may have confict with current conversation agent's similar keyword fetch. Please test and consider if you should create a new environment seperately for preprocess only.**
 Use the client script `pdf_preprocess/PaddleOCR_vl_pdf2md_client.py` for PDF → Markdown preprocessing.
 
 This repository only provides the client. Deploy a PaddleOCR‑VL server separately using the official guide:
