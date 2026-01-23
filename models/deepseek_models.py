@@ -5,7 +5,6 @@ This module provides functions to initialize and configure Deepseek chat models.
 
 import os
 from langchain_openai import ChatOpenAI
-from CATDA.models.utils import check_model
 DeepSeek_API_KEY = os.environ.get("DEEPSEEK_API_KEY")
 temp = 0
 
@@ -35,6 +34,7 @@ def get_deepseek_model(model_name: str, temperature=temp, api_key=DeepSeek_API_K
 if __name__ == "__main__":
     try:
         llm_model = get_deepseek_model(model_name="deepseek-chat")
-        check_model(llm_model)
+        response = llm_model.invoke("What is the capital of France?")
+        print(f"Model response: {getattr(response, 'content', response)}")
     except Exception as e:
         print(f"Error during testing: {e}")

@@ -1,21 +1,21 @@
 import logging
-from typing import List, Dict, Any, Tuple
+from typing import Any, Dict, List, Tuple
 
-from langchain.agents import AgentExecutor
 from langchain_core.callbacks.usage import get_usage_metadata_callback
-from langchain_core.messages import HumanMessage, AIMessage, BaseMessage
+from langchain_core.messages import AIMessage, BaseMessage, HumanMessage, SystemMessage
 
 # Ensure custom handlers are imported correctly
 from .custom_handlers import ToolCaptureHandler
+from ..prompts.agent_prompt import agent_system_prompt as system_prompt
 
 logger = logging.getLogger(__name__)
 
-def run_agent(agent_executor: AgentExecutor, user_input: str, chat_history_tuples: List[Tuple[str | None, str | None]]) -> Dict[str, Any]:
+def run_agent(agent_executor: Any, user_input: str, chat_history_tuples: List[Tuple[str | None, str | None]]) -> Dict[str, Any]:
     """
-    Runs the agent executor with the given input and history, capturing tool calls and usage.
+    Runs the agent with the given input and history, capturing tool calls and usage.
 
     Args:
-        agent_executor: The initialized LangChain AgentExecutor.
+        agent_executor: The initialized agent runnable.
         user_input: The user's current query.
         chat_history_tuples: The chat history from Gradio (list of tuples).
 
@@ -44,14 +44,25 @@ def run_agent(agent_executor: AgentExecutor, user_input: str, chat_history_tuple
 
 
     try:
+        messages = [SystemMessage(content=system_prompt)] + langchain_history + [HumanMessage(content=user_input)]
         with get_usage_metadata_callback() as usage_cb:
             response = agent_executor.invoke(
-                {"input": user_input, "chat_history": langchain_history},
-                config={"callbacks": [tool_handler]}
+                {"messages": messages},
+                config={"callbacks": [tool_handler]},
             )
-            ai_response = response.get('output', ai_response)
             usage_metadata = usage_cb.usage_metadata
             tool_records = tool_handler.records
+
+            # LangGraph prebuilt agents return a state dict with "messages".
+            if isinstance(response, dict) and "messages" in response and response["messages"]:
+                final_msg = response["messages"][-1]
+                ai_response = getattr(final_msg, "content", str(final_msg))
+            else:
+                if isinstance(response, dict):
+                    ai_response = response.get("output", ai_response)
+                else:
+                    ai_response = getattr(response, "content", str(response))
+
             logger.info(f"Agent invoked. Response: {ai_response[:100]}... Tools: {len(tool_records)}, Usage: {usage_metadata}")
 
     except Exception as e:

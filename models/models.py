@@ -94,6 +94,16 @@ def get_model(model: str = 'deepseek_deepseek-chat', **kwargs: Any):
              logger.error(f"Error getting Google model '{official_model_name}': {e}")
              raise # Re-raise the error from the provider function
 
+    elif provider == 'openrouter':
+        try:
+            from .openai_models import get_openrouter_model
+            llm = get_openrouter_model(model_name=official_model_name, **kwargs)
+        except ImportError:
+            raise ImportError("Could not import 'get_openrouter_model' from .openai_models. Ensure it exists.") from None
+        except Exception as e:
+            logger.error(f"Error getting OpenRouter model '{official_model_name}': {e}")
+            raise
+
     # elif provider == 'anthropic':
     #     try:
     #         from .Anthropic import get_anthropic_model # Assuming this exists
@@ -106,7 +116,7 @@ def get_model(model: str = 'deepseek_deepseek-chat', **kwargs: Any):
 
     else:
         # Consider adding more supported providers to the error message as they are implemented
-        raise ValueError(f"Unknown provider: '{provider}'. Supported providers: ['openai', 'deepseek', 'google'].")
+        raise ValueError(f"Unknown provider: '{provider}'. Supported providers: ['openai', 'deepseek', 'google', 'openrouter'].")
 
     # This check might be redundant if provider functions always return or raise, but good practice.
     if llm is None:
@@ -116,4 +126,3 @@ def get_model(model: str = 'deepseek_deepseek-chat', **kwargs: Any):
     logger.info(f"Created model: {provider} / {official_model_name}")
     
     return llm
-

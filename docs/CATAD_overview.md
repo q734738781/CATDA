@@ -81,7 +81,7 @@ CatAgent is a LangChain-based **tool calling agent** that situates an LLM inside
 * explore **multistep synthesis pathways** (`SynthesisPathExplorerTool`).
 
 ### 4.1 Prompt Design
-The system prompt (see `prompts/agent_prompt.py`) enumerates tool descriptions in a structured JSON block.  LangChain's `create_tool_calling_agent` wrapper instructs the underlying LLM to output a `tool_call` whenever tool usage improves answer quality.  Intermediate results accumulate in the `agent_scratchpad`, enabling chain-of-thought style reasoning with full transparency.
+The system prompt (see `prompts/agent_prompt.py`) enumerates tool descriptions in a structured JSON block. The current implementation uses a LangGraph prebuilt ReAct agent; the system message is injected at runtime, and the LLM decides when to call tools based on the prompt and tool schemas.
 
 ### 4.2 Execution Modes
 CatAgent can be deployed:

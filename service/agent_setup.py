@@ -1,10 +1,10 @@
 import logging
-import sys
 import os
+import sys
+from typing import Any
 
-# Langchain imports
-from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
-from langchain.agents import AgentExecutor, create_tool_calling_agent
+# LangGraph imports (modern agent stack)
+from langgraph.prebuilt import create_react_agent
 
 # Project imports - Adjusted path assuming this file is in the service directory
 # Using relative imports now
@@ -21,8 +21,6 @@ try:
     # Additional tools (group B)
     from ..agentic_tools.unit_converter_tool import UnitConverterTool
     from ..agentic_tools.synthesis_path_retriever import SynthesisPathRetrieverTool
-    # Prompt
-    from ..prompts.agent_prompt import agent_system_prompt as system_prompt
 except ImportError as e:
     # If run directly or package structure is wrong, this will fail.
     logger = logging.getLogger(__name__) # Need logger for error message
@@ -41,9 +39,9 @@ def setup_agent(
     verbose: bool = False,
     name_regex_map_path: str | None = None,
     field_regex_map_path: str | None = None,
-) -> AgentExecutor:
+) -> Any:
     """
-    Initializes the LLM, tools, prompt, agent, and executor.
+    Initializes the LLM, tools, and agent.
     Args:
         model_name: Name of the language model to use.
         neo4j_uri: Connection URI for the Neo4j database.
@@ -52,7 +50,7 @@ def setup_agent(
         verbose: Whether to run the agent executor in verbose mode.
 
     Returns:
-        An initialized AgentExecutor instance.
+        An initialized agent runnable.
 
     Raises:
         SystemExit: If model initialization or tool initialization fails.
@@ -119,41 +117,16 @@ def setup_agent(
         logger.info(f"- {t.name}: {t.description}")
 
 
-    logger.info("Creating prompt...")
-    # Define the prompt template
-    # Ensure you have 'agent_scratchpad' for intermediate steps if using certain agent types
-    # create_tool_calling_agent uses 'agent_scratchpad' implicitly.
+    logger.info("Creating agent (LangGraph prebuilt ReAct agent)...")
     try:
-        prompt = ChatPromptTemplate.from_messages(
-            [
-                # Format the system prompt with the actual tool name and description
-                ("system", system_prompt),
-                MessagesPlaceholder(variable_name="chat_history", optional=True),
-                ("human", "{input}"),
-                MessagesPlaceholder(variable_name="agent_scratchpad"),
-            ]
-        )
+        # System prompt is injected at runtime in run_agent.
+        agent = create_react_agent(llm, tools)
     except Exception as e:
-        logger.error(f"Failed to create prompt template: {e}", exc_info=True)
+        logger.error(f"Failed to create LangGraph agent: {e}", exc_info=True)
         sys.exit(1)
 
-
-    logger.info("Creating agent...")
-    try:
-        # The LLM uses the tool descriptions in the prompt to decide which tool to call.
-        agent = create_tool_calling_agent(llm, tools, prompt)
-    except Exception as e:
-        logger.error(f"Failed to create tool calling agent: {e}", exc_info=True)
-        sys.exit(1)
-
-
-    logger.info("Creating agent executor...")
-    try:
-        # Pass verbose flag from function arguments
-        agent_executor = AgentExecutor(agent=agent, tools=tools, verbose=verbose)
-    except Exception as e:
-        logger.error(f"Failed to create agent executor: {e}", exc_info=True)
-        sys.exit(1)
+    if verbose:
+        logger.warning("Verbose flag is ignored by LangGraph prebuilt agents.")
 
     logger.info("Agent setup complete.")
-    return agent_executor 
+    return agent

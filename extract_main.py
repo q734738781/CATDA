@@ -3,17 +3,25 @@ import json
 import logging
 import argparse
 import multiprocessing
+import sys
 from pathlib import Path
 from typing import Dict, Tuple, List
 from pathlib import Path as _PathAlias  # avoid confusion in type hints for argparse default
 import datetime
 import glob
-from models.models import get_model
+from random import shuffle
+
+# Ensure CATDA package imports resolve when running from the repo root.
+_ROOT = Path(__file__).resolve().parent
+_PARENT = _ROOT.parent
+if str(_PARENT) not in sys.path:
+    sys.path.insert(0, str(_PARENT))
+
+from CATDA.models.models import get_model
 from CATDA.tools.ml_dataset.generate_dataset import generate_ml_dataset
 from CATDA.tools.cat_graph.catgraph_extractor import extract_catgraph
 from langchain_core.callbacks.usage import get_usage_metadata_callback
 from langchain.globals import set_verbose
-from random import shuffle
 
 # Configure logging
 logging.basicConfig(

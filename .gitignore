@@ -1,0 +1,130 @@
+# =========================
+# Python / Byte-compiled
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# =========================
+# C extensions / compiled
+# =========================
+*.so
+*.pyd
+*.dll
+*.dylib
+
+# =========================
+# Distribution / packaging
+# =========================
+build/
+dist/
+develop-eggs/
+eggs/
+.eggs/
+*.egg-info/
+*.egg
+pip-wheel-metadata/
+*.whl
+
+# =========================
+# Virtual environments
+# =========================
+.venv/
+venv/
+ENV/
+env/
+.conda/
+conda/
+# Poetry
+.poetry/
+
+# =========================
+# PyInstaller
+# =========================
+*.manifest
+*.spec
+
+# =========================
+# Testing / coverage
+# =========================
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+nosetests.xml
+test-results/
+*.log
+
+# =========================
+# Type checking / linting
+# =========================
+.mypy_cache/
+.pyre/
+.pytype/
+.ruff_cache/
+.pylint.d/
+
+# =========================
+# Jupyter / IPython
+# =========================
+.ipynb_checkpoints/
+profile_default/
+ipython_config.py
+
+# =========================
+# IDEs / Editors
+# =========================
+.vscode/
+.idea/
+*.iml
+*.swp
+*.swo
+*~
+
+# =========================
+# OS files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# dotenv / secrets (按需)
+# =========================
+.env
+.env.*
+*.pem
+*.key
+
+# =========================
+# Project data / outputs
+# =========================
+data/
+./data/
+datasets/
+outputs/
+results/
+runs/
+logs/
+tmp/
+cache/
+artifacts/
+
+# =========================
+# Model checkpoints (按需)
+# =========================
+*.ckpt
+*.pt
+*.pth
+*.onnx
+
+# =========================
+# Docs build (按需)
+# =========================
+docs/_build/
+site/
+
+# =========================
+# Git itself (通常不需要写，但按你提到的也列在这里)
+# =========================
+.git/

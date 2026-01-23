@@ -9,7 +9,7 @@ class ToolCaptureHandler(BaseCallbackHandler):
     def on_tool_start(
         self,
         serialized: Dict[str, Any],
-        input_str: str,
+        input_str: str | None = None,
         *,
         run_id: Any,
         parent_run_id: Any | None = None,
@@ -24,11 +24,16 @@ class ToolCaptureHandler(BaseCallbackHandler):
         if tool_name:
             # Sometimes input_str might be a dict string like '{{\"cypher_query\": \"MATCH...\"}}'
             # Try to parse it if needed, otherwise use as is.
-            query_to_store = input_str
+            query_to_store = input_str if input_str is not None else ""
             try:
                 # Langchain might pass the input as a dictionary string
                 import json
-                input_dict = json.loads(input_str)
+                if input_str:
+                    input_dict = json.loads(input_str)
+                elif isinstance(inputs, dict):
+                    input_dict = inputs
+                else:
+                    input_dict = None
                 # If dict, store pretty json else leave plaintext
                 if isinstance(input_dict, dict):
                     query_to_store = json.dumps(input_dict, indent=2)

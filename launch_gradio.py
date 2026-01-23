@@ -4,6 +4,12 @@ import sys
 import os
 from pathlib import Path
 
+# Ensure CATDA package imports resolve when running from the repo root.
+_ROOT = Path(__file__).resolve().parent
+_PARENT = _ROOT.parent
+if str(_PARENT) not in sys.path:
+    sys.path.insert(0, str(_PARENT))
+
 # --- Configuration ---
 DEFAULT_MODEL = 'google_gemini-2.5-pro'
 
