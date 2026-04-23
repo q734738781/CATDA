@@ -36,6 +36,9 @@ def get_google_model(model_name: str, **kwargs: Any) -> ChatGoogleGenerativeAI:
         elif kwargs['model'] != model_name:
              logger.warning(f"Overriding 'model' kwarg ('{kwargs['model']}') with provided model_name ('{model_name}').")
              kwargs['model'] = model_name
+        unsupported_reasoning_effort = kwargs.pop("reasoning_effort", None)
+        if unsupported_reasoning_effort:
+            logger.warning("Ignoring reasoning_effort for Google models; configure Gemini-specific thinking options separately if needed.")
 
         logger.info(f"Initializing Google model: {model_name} with kwargs: {kwargs}")
         llm = ChatGoogleGenerativeAI(api_key=GOOGLE_API_KEY, **kwargs)
@@ -54,4 +57,3 @@ if __name__ == "__main__":
         response = model.invoke("What is the capital of France?")
         print(response)
         print(usage_callback.usage_metadata)
-

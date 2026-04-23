@@ -46,7 +46,7 @@ class ToolCaptureHandler(BaseCallbackHandler):
 
     def on_tool_end(
         self,
-        output: str,
+        output: Any,
         *,
         run_id: Any,
         parent_run_id: Any | None = None,
@@ -55,7 +55,14 @@ class ToolCaptureHandler(BaseCallbackHandler):
     ) -> Any:
         """Called when tool ends."""
         if self.records and self.records[-1]["result"] == "":
-            self.records[-1]["result"] = output
+            output_text = getattr(output, "content", output)
+            if not isinstance(output_text, str):
+                try:
+                    import json
+                    output_text = json.dumps(output_text, ensure_ascii=False, default=str)
+                except TypeError:
+                    output_text = str(output_text)
+            self.records[-1]["result"] = output_text
             print(f"Tool End Captured: {self.records[-1]['result']}") # Debug print
 
     # Ignore other callback methods like on_llm_start, on_chat_model_start etc.

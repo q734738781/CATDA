@@ -11,6 +11,13 @@ OpenAI_API_KEY = os.environ.get("OPENAI_API_KEY")
 OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY")
 OPENROUTER_BASE_URL = os.environ.get("OPENROUTER_BASE_URL", "https://openrouter.ai/api/v1")
 
+def _pop_temperature(kwargs, default=0):
+    """Accept both legacy `temp` and LangChain-native `temperature` names."""
+    if "temperature" in kwargs:
+        return kwargs.pop("temperature")
+    return kwargs.pop("temp", default)
+
+
 def get_openai_model(model_name: str, temp=0, **kwargs):
     """Get a configured OpenAI chat model instance based on the provided model name.
 
@@ -29,9 +36,10 @@ def get_openai_model(model_name: str, temp=0, **kwargs):
     if not OpenAI_API_KEY:
         raise ValueError("OPENAI_API_KEY environment variable not set.")
     
+    temperature = _pop_temperature(kwargs, temp)
     model = ChatOpenAI(
         model=model_name, 
-        temperature=temp,
+        temperature=temperature,
         api_key=OpenAI_API_KEY,
         **kwargs,
 
@@ -56,10 +64,20 @@ def get_openrouter_model(model_name: str, temp=0, **kwargs):
     if not OPENROUTER_API_KEY:
         raise ValueError("OPENROUTER_API_KEY environment variable not set.")
 
+    temperature = _pop_temperature(kwargs, temp)
     base_url = kwargs.pop("base_url", OPENROUTER_BASE_URL)
+    reasoning_effort = kwargs.pop("reasoning_effort", None)
+    if reasoning_effort:
+        extra_body = dict(kwargs.pop("extra_body", {}) or {})
+        reasoning = dict(extra_body.get("reasoning", {}) or {})
+        reasoning.setdefault("effort", reasoning_effort)
+        reasoning.setdefault("exclude", True)
+        extra_body["reasoning"] = reasoning
+        kwargs["extra_body"] = extra_body
+
     model = ChatOpenAI(
         model=model_name,
-        temperature=temp,
+        temperature=temperature,
         api_key=OPENROUTER_API_KEY,
         base_url=base_url,
         **kwargs,

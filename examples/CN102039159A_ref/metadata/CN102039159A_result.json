@@ -1,0 +1,11 @@
+{
+  "file": "..\\data\\debug_patents\\CN102039159A.md",
+  "status": "success",
+  "run_id": "CN102039159A",
+  "output_graph_file": "..\\extract_results\\v3\\debug\\graph\\CN102039159A_output.json",
+  "model_name": "google_gemini-2.5-pro-preview-03-25",
+  "usage_metadata_stage1": "{'gemini-2.5-pro-preview-03-25': {'output_tokens': 40408, 'total_tokens': 104031, 'input_tokens': 63623, 'input_token_details': {'cache_read': 0}}}",
+  "ml_generation_model": "google_gemini-2.5-pro-preview-03-25",
+  "ml_generation_status": "success",
+  "usage_metadata": "{'gemini-2.5-pro-preview-03-25': {'output_tokens': 58791, 'total_tokens': 146640, 'input_tokens': 87849, 'input_token_details': {'cache_read': 0}}}"
+}

@@ -1,0 +1,9 @@
+{
+  "file": "data/test/CN102039159A.md",
+  "status": "success",
+  "run_id": "CN102039159A",
+  "output_graph_file": "output_openrouter_gpt54_CN102039159A/graph/CN102039159A_output.json",
+  "model_name": "openrouter_openai/gpt-5.4",
+  "usage_metadata_stage1": "{'openai/gpt-5.4-20260305': {'input_token_details': {'audio': 0, 'cache_read': 18688}, 'input_tokens': 83543, 'total_tokens': 141552, 'output_tokens': 58009, 'output_token_details': {'reasoning': 25915, 'audio': 0}}}",
+  "ml_generation_status": "not_requested"
+}

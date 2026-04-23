@@ -4,7 +4,6 @@ langchain-core
 langchain-openai
 langchain-google-genai
 langgraph
-langgraph
 openai
 gradio
 neo4j
@@ -17,6 +16,7 @@ sentence-transformers
 lmdb
 networkx
 tavily-python
+pint
 
 # You will need to install dependencies for preprocessing:
 bs4

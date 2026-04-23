@@ -36,7 +36,9 @@ $env:FIELD_RESOLVER_REGEX_MAP = "D:\configs\field_regex.json"
 ```
 
 OpenRouter note:
-- Use model names like `openrouter_openai/gpt-4o-mini` with `OPENROUTER_API_KEY`.
+- Use model names like `openrouter_openai/gpt-5.4` with `OPENROUTER_API_KEY`.
+- OpenRouter reasoning models can use `--reasoning-effort minimal|low|medium|high|xhigh`.
+- Use `requirements-pinned.txt` if you need to reproduce the LangChain 1.x validated environment.
 
 ## Workflow
 
@@ -69,12 +71,15 @@ Notes:
 Command (run from the project root):
 ```bash
 export PYTHONPATH=.
-python -m extract_main.py <input_path> \
+python extract_main.py <input_path> \
   --output-dir <out_dir> \
   --file-ext .md \
   --mode both \
   --processes 4 \
-  --feature-file CATDA/prompts/features_to_extract.txt
+  --model openrouter_openai/gpt-5.4 \
+  --ml-model openrouter_openai/gpt-5.4 \
+  --reasoning-effort medium \
+  --feature-file prompts/features_to_extract.txt
 ```
 
 Key flags:
@@ -82,8 +87,11 @@ Key flags:
 - `--output-dir`: where results are written (creates `graph/`, `dataset/`, `metadata/`)
 - `--file-ext`: input extension filter (default `.md`)
 - `--mode`: `extract` | `generate-ml-only` | `both` (default `both`)
+- `--model`: extraction model in `provider_model` format
+- `--ml-model`: model used to generate projected feature rows in `--mode both` or `generate-ml-only`
+- `--reasoning-effort`: optional reasoning effort for supported OpenRouter models
 - `--graph-pattern`: pattern for existing graphs when using `generate-ml-only` (default `*_output.json` under `<out_dir>/graph`)
-- `--feature-file`: feature definitions for the ML dataset (default `CATDA/prompts/features_to_extract.txt`)
+- `--feature-file`: feature definitions for the ML dataset (default `prompts/features_to_extract.txt` when running from this directory)
 
 Outputs:
 - CatGraph JSON: `<out_dir>/graph/<run_id>_output.json`
@@ -170,22 +178,39 @@ Guidance:
 
 ## Concrete Examples
 
-1) Extract CatGraph only
+1) Extract CatGraph and projected feature table for the included CN102039159A example
+```bash
+export OPENROUTER_API_KEY="<your_openrouter_key>"
+python extract_main.py examples/CN102039159A.md \
+  --output-dir examples/CN102039159A_test_run \
+  --file-ext .md \
+  --mode both \
+  --processes 1 \
+  --model openrouter_openai/gpt-5.4 \
+  --ml-model openrouter_openai/gpt-5.4 \
+  --reasoning-effort medium \
+  --feature-file prompts/features_to_extract.txt
+```
+
+The published-reference extraction for this example is stored in `examples/CN102039159A_ref/`.
+See `examples/CN102039159A_usage.md` for the example layout and quick comparison script.
+
+2) Extract CatGraph only
 ```bash
 export PYTHONPATH=.;python -m extract_main.py data/OCM_articles_MD --output-dir out_v1 --file-ext .md --mode extract --processes 4
 ```
 
-2) Generate ML dataset from existing CatGraph
+3) Generate ML dataset from existing CatGraph
 ```bash
-export PYTHONPATH=.;python -m extract_main out_v1 --output-dir out_v1 --mode generate-ml-only --graph-pattern "*_output.json" --feature-file CATDA/prompts/features_to_extract.txt
+export PYTHONPATH=.;python extract_main.py out_v1 --output-dir out_v1 --mode generate-ml-only --graph-pattern "*_output.json" --feature-file prompts/features_to_extract.txt
 ```
 
-3) Import to Neo4j
+4) Import to Neo4j
 ```bash
 export PYTHONPATH=.;python -m tools.neo4j.neo4j_import out_v1/graph --neo4j_user neo4j --neo4j_password "$NEO4J_PASSWORD" --clear
 ```
 
-4) Launch CatAgent
+5) Launch CatAgent
 ```bash
 export PYTHONPATH=.;python -m launch_gradio --model google_gemini-2.5-pro --neo4j-password "$NEO4J_PASSWORD" --gradio-port 6810
 ```

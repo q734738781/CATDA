@@ -5,7 +5,7 @@ import argparse
 import multiprocessing
 import sys
 from pathlib import Path
-from typing import Dict, Tuple, List
+from typing import Any, Dict, Tuple, List
 from pathlib import Path as _PathAlias  # avoid confusion in type hints for argparse default
 import datetime
 import glob
@@ -21,7 +21,10 @@ from CATDA.models.models import get_model
 from CATDA.tools.ml_dataset.generate_dataset import generate_ml_dataset
 from CATDA.tools.cat_graph.catgraph_extractor import extract_catgraph
 from langchain_core.callbacks.usage import get_usage_metadata_callback
-from langchain.globals import set_verbose
+try:
+    from langchain_core.globals import set_verbose
+except ImportError:  # Compatibility with older LangChain installations.
+    from langchain.globals import set_verbose
 
 # Configure logging
 logging.basicConfig(
@@ -45,6 +48,7 @@ ML_DATASET_MODEL_NAME = 'google_gemini-2.5-pro'
 MODES = ['extract', 'generate-ml-only', 'both'] # Define available modes
 ENABLE_PRINT = True
 MODEL_TEMP = None # temperature for model. None for default setting
+MODEL_KWARGS: Dict[str, Any] = {}
 
 # --- Worker Function for Multiprocessing ---
 def process_file_wrapper(args_tuple: Tuple[str, str, str, str, bool, str]) -> Dict:
@@ -62,12 +66,11 @@ def process_file_wrapper(args_tuple: Tuple[str, str, str, str, bool, str]) -> Di
     if ENABLE_PRINT:
         set_verbose(True)
 
+    model_kwargs = dict(MODEL_KWARGS)
     if MODEL_TEMP is not None:
-        model = get_model(model = model_name, temperature = MODEL_TEMP) # Initialize model with temperature
-        ml_model = get_model(model = ml_model_name, temperature = MODEL_TEMP) # Initialize ML model with temperature
-    else:
-        model = get_model(model = model_name) # Initialize model without temperature
-        ml_model = get_model(model = ml_model_name) # Initialize ML model without temperature
+        model_kwargs["temperature"] = MODEL_TEMP
+    model = get_model(model=model_name, **model_kwargs)
+    ml_model = get_model(model=ml_model_name, **model_kwargs) if gen_ml_flag else None
     result_data = None
     result_file = Path(output_dir) / "metadata" /  f"{file_path.stem}_result.json" # Consistent naming for result files
     # Create metadata directory if it doesn't exist
@@ -159,10 +162,10 @@ def process_ml_generation_from_graph(args_tuple: Tuple[str, str, str, str]) -> D
         'run_id': run_id_for_ml,
         'error_message': None
     }
+    model_kwargs = dict(MODEL_KWARGS)
     if MODEL_TEMP is not None:
-        ml_model = get_model(model=ml_model_name, temperature=MODEL_TEMP) # Initialize ML model with temperature
-    else:
-        ml_model = get_model(model=ml_model_name) # Initialize ML model without temperature
+        model_kwargs["temperature"] = MODEL_TEMP
+    ml_model = get_model(model=ml_model_name, **model_kwargs)
     with get_usage_metadata_callback() as usage_cb:
         try:
             logger.info(f"[{pid}/{run_id_for_ml}] Triggering ML dataset generation for graph {graph_file_path.name}...")
@@ -209,7 +212,7 @@ def process_ml_generation_from_graph(args_tuple: Tuple[str, str, str, str]) -> D
 # --- Main Execution Logic ---
 
 def main():
-    # global ml_dataset_lock # Remove global declaration
+    global MODEL_NAME, ML_DATASET_MODEL_NAME, MODEL_TEMP, MODEL_KWARGS
 
     parser = argparse.ArgumentParser(description='Extract CatGraph data from text files.') # Updated description slightly
     parser.add_argument('input_path', type=str, help='Path to input file or directory (used for modes: extract, both).') # Clarified help
@@ -223,9 +226,21 @@ def main():
     parser.add_argument('--graph-pattern', type=str, default='*_output.json', help='Glob pattern to find graph JSON files (*_output.json) in the output_dir/graph subdirectory (used with --mode generate-ml-only).') # New argument
     # Feature description file for ML dataset generation
     parser.add_argument('--feature-file', type=str, default='./prompts/features_to_extract.txt', help='Path to feature descriptions txt used for ML dataset generation.')
+    parser.add_argument('--model', type=str, default=MODEL_NAME, help='Extraction model in provider_model format, e.g. openrouter_openai/gpt-5.4.')
+    parser.add_argument('--ml-model', type=str, default=ML_DATASET_MODEL_NAME, help='ML dataset generation model in provider_model format.')
+    parser.add_argument('--temperature', type=float, default=MODEL_TEMP, help='Optional sampling temperature passed to the model.')
+    parser.add_argument('--reasoning-effort', type=str, default=None, choices=['none', 'minimal', 'low', 'medium', 'high', 'xhigh'], help='Optional reasoning effort for supported models/providers.')
 
 
     args = parser.parse_args()
+
+    MODEL_NAME = args.model
+    ML_DATASET_MODEL_NAME = args.ml_model
+    MODEL_TEMP = args.temperature
+    MODEL_KWARGS = {}
+    if args.reasoning_effort:
+        if args.reasoning_effort != "none":
+            MODEL_KWARGS["reasoning_effort"] = args.reasoning_effort
 
     input_path = Path(args.input_path)
     output_dir = Path(args.output_dir)

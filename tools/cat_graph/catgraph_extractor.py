@@ -28,6 +28,71 @@ CONTROL_SYMBOLS_TO_REMOVE = [
 # Set up logger for this module
 logger = logging.getLogger(__name__)
 
+# --- LLM output parsing helpers --- #
+
+def _iter_balanced_json_candidates(text: str):
+    """Yield balanced object/array substrings while respecting JSON strings."""
+    start = None
+    stack = []
+    in_string = False
+    escape = False
+    for idx, ch in enumerate(text):
+        if start is None:
+            if ch in "{[":
+                start = idx
+                stack = [ch]
+                in_string = False
+                escape = False
+            continue
+
+        if in_string:
+            if escape:
+                escape = False
+            elif ch == "\\":
+                escape = True
+            elif ch == '"':
+                in_string = False
+            continue
+
+        if ch == '"':
+            in_string = True
+        elif ch in "{[":
+            stack.append(ch)
+        elif ch in "}]":
+            if not stack:
+                start = None
+                continue
+            opener = stack[-1]
+            if (opener, ch) not in (("{", "}"), ("[", "]")):
+                start = None
+                stack = []
+                continue
+            stack.pop()
+            if not stack and start is not None:
+                yield text[start:idx + 1]
+                start = None
+
+
+def _loads_llm_json(output: str, label: str) -> Any:
+    """Parse JSON/JSON5 from fenced, direct, or balanced LLM output."""
+    errors = []
+    fenced_blocks = re.findall(r"```(?:json|JSON)?\s*(.*?)\s*```", output, re.DOTALL)
+    candidates = fenced_blocks + [output.strip()] + list(_iter_balanced_json_candidates(output))
+    seen = set()
+
+    for candidate in candidates:
+        candidate = candidate.strip()
+        if not candidate or candidate in seen:
+            continue
+        seen.add(candidate)
+        try:
+            return json5.loads(candidate)
+        except Exception as exc:
+            errors.append(f"{type(exc).__name__}: {exc}")
+
+    raise ValueError(f"Failed to parse {label} as JSON/JSON5. Tried {len(seen)} candidate(s). Last errors: {'; '.join(errors[-3:])}")
+
+
 # --- Helper function to apply graph changes --- #
 
 def _apply_graph_changes(initial_graph: Dict[str, Any], changes: Dict[str, Any], graph_type: str):
@@ -138,19 +203,8 @@ def extract_catgraph(file_path: Path, output_dir: Path, model, model_name: str) 
 
         # -- Initial Extraction Parsing (inside 'with' to associate errors) --
         try:
-            json_match_initial = re.search(r"```json\n(.*?)\n```|(\{.*?\})|(\[.*?\])", llm_output_initial, re.DOTALL | re.IGNORECASE)
-            if json_match_initial:
-                json_str_initial = next(g for g in json_match_initial.groups() if g is not None)
-                intial_synthesis_data = json5.loads(json_str_initial)
-                logger.info(f"Successfully parsed initial JSON from LLM output for {file_path}")
-            else:
-                logger.warning(f"Could not find JSON block in initial LLM output for {file_path}. Trying direct parse.")
-                try:
-                    intial_synthesis_data = json5.loads(llm_output_initial)
-                    logger.info(f"Successfully parsed direct initial LLM output as JSON for {file_path}")
-                except ValueError:
-                    logger.error(f"Failed to parse initial LLM output as JSON for {file_path}. Output:\n{llm_output_initial}")
-                    raise ValueError("Initial LLM output is not valid JSON or JSON5.")
+            intial_synthesis_data = _loads_llm_json(llm_output_initial, "initial synthesis output")
+            logger.info(f"Successfully parsed initial JSON from LLM output for {file_path}")
         except ValueError as e:
             logger.error(f"Initial JSON Parsing Error for {file_path}: {e}. Raw output:\n{llm_output_initial}")
             # Re-raise to be caught by the outer try-except, ensuring metadata is captured
@@ -163,15 +217,9 @@ def extract_catgraph(file_path: Path, output_dir: Path, model, model_name: str) 
             llm_output_synthesis_check = response_synthesis_check.content
 
             try:
-                match_synth_check = re.search(r"```json\n(.*?)\n```", llm_output_synthesis_check, re.DOTALL | re.IGNORECASE)
-                if match_synth_check:
-                    synth_check_json_str = match_synth_check.group(1)
-                    synthesis_changes = json5.loads(synth_check_json_str)
-                    # Apply the changes using the helper function
-                    _apply_graph_changes(intial_synthesis_data, synthesis_changes, "Synthesis")
-                    logger.info(f"Applied Synthesis changes for {file_path}")
-                else:
-                    logger.warning(f"No ```json``` block in Synthesis validation output for {file_path}. No changes applied. Output: {llm_output_synthesis_check}")
+                synthesis_changes = _loads_llm_json(llm_output_synthesis_check, "synthesis validation output")
+                _apply_graph_changes(intial_synthesis_data, synthesis_changes, "Synthesis")
+                logger.info(f"Applied Synthesis changes for {file_path}")
             except ValueError as e:
                 logger.error(f"Synthesis Validation JSON Parsing Error: {e}. No changes applied. Output: {llm_output_synthesis_check}")
             except Exception as e_apply: # Catch errors during the apply step
@@ -205,20 +253,8 @@ def extract_catgraph(file_path: Path, output_dir: Path, model, model_name: str) 
 
             # Parse initial testing graph
             try:
-                match_test_initial = re.search(r"```json\n(.*?)\n```|(\{.*?\})", test_output_initial, re.DOTALL | re.IGNORECASE)
-                if match_test_initial:
-                    test_json_str = next(g for g in match_test_initial.groups() if g)
-                    testing_graph_data = json5.loads(test_json_str)
-                    logger.info(f"Successfully parsed initial Testing JSON from LLM output for {file_path}")
-                else:
-                    logger.warning(f"Could not find JSON block in initial Testing LLM output for {file_path}. Trying direct parse.")
-                    try:
-                        testing_graph_data = json5.loads(test_output_initial)
-                        logger.info(f"Successfully parsed direct initial Testing LLM output as JSON for {file_path}")
-                    except ValueError:
-                       logger.error(f"Failed to parse initial Testing LLM output as JSON for {file_path}. Output:\n{test_output_initial}")
-                       # Set to None to prevent validation check if initial parse fails
-                       testing_graph_data = None
+                testing_graph_data = _loads_llm_json(test_output_initial, "initial testing output")
+                logger.info(f"Successfully parsed initial Testing JSON from LLM output for {file_path}")
             except Exception as e_parse_test:
                 logger.error(f"Failed parsing initial testing graph JSON for {file_path}: {e_parse_test}")
                 testing_graph_data = None # Ensure it's None if parsing fails
@@ -230,15 +266,9 @@ def extract_catgraph(file_path: Path, output_dir: Path, model, model_name: str) 
                 llm_output_testing_check = response_testing_check.content
 
                 try:
-                    match_test_check = re.search(r"```json\n(.*?)\n```", llm_output_testing_check, re.DOTALL | re.IGNORECASE)
-                    if match_test_check:
-                        test_check_json_str = match_test_check.group(1)
-                        testing_changes = json5.loads(test_check_json_str)
-                        # Apply the changes using the helper function
-                        _apply_graph_changes(testing_graph_data, testing_changes, "Testing")
-                        logger.info(f"Applied Testing changes for {file_path}")
-                    else:
-                        logger.warning(f"No ```json``` block in Testing validation output for {file_path}. No changes applied. Output: {llm_output_testing_check}")
+                    testing_changes = _loads_llm_json(llm_output_testing_check, "testing validation output")
+                    _apply_graph_changes(testing_graph_data, testing_changes, "Testing")
+                    logger.info(f"Applied Testing changes for {file_path}")
                 except ValueError as e:
                     logger.error(f"Testing Validation JSON Parsing Error: {e}. No changes applied. Output: {llm_output_testing_check}")
                 except Exception as e_apply: # Catch errors during the apply step
@@ -311,19 +341,8 @@ def extract_catgraph(file_path: Path, output_dir: Path, model, model_name: str) 
 
                 # Parse initial characterization graph
                 try:
-                    match_char_initial = re.search(r"```json\n(.*?)\n```|(\{.*?\})", char_output_initial, re.DOTALL | re.IGNORECASE)
-                    if match_char_initial:
-                        char_json_str = next(g for g in match_char_initial.groups() if g)
-                        characterization_graph_data = json5.loads(char_json_str)
-                        logger.info(f"Successfully parsed initial Characterization JSON from LLM output for {file_path}")
-                    else:
-                        logger.warning(f"Could not find JSON block in initial Characterization LLM output for {file_path}. Trying direct parse.")
-                        try:
-                            characterization_graph_data = json5.loads(char_output_initial)
-                            logger.info(f"Successfully parsed direct initial Characterization LLM output as JSON for {file_path}")
-                        except ValueError:
-                            logger.error(f"Failed to parse initial Characterization LLM output as JSON for {file_path}. Output:\n{char_output_initial}")
-                            characterization_graph_data = None
+                    characterization_graph_data = _loads_llm_json(char_output_initial, "initial characterization output")
+                    logger.info(f"Successfully parsed initial Characterization JSON from LLM output for {file_path}")
                 except Exception as e_parse_char:
                     logger.error(f"Failed parsing initial characterization graph JSON for {file_path}: {e_parse_char}")
                     characterization_graph_data = None
@@ -334,14 +353,9 @@ def extract_catgraph(file_path: Path, output_dir: Path, model, model_name: str) 
                     response_char_check = model.invoke(messages_char_check)
                     llm_output_char_check = response_char_check.content
                     try:
-                        match_char_check = re.search(r"```json\n(.*?)\n```", llm_output_char_check, re.DOTALL | re.IGNORECASE)
-                        if match_char_check:
-                            char_check_json_str = match_char_check.group(1)
-                            char_changes = json5.loads(char_check_json_str)
-                            _apply_graph_changes(characterization_graph_data, char_changes, "Characterization")
-                            logger.info(f"Applied Characterization changes for {file_path}")
-                        else:
-                            logger.warning(f"No ```json``` block in Characterization validation output for {file_path}. No changes applied. Output: {llm_output_char_check}")
+                        char_changes = _loads_llm_json(llm_output_char_check, "characterization validation output")
+                        _apply_graph_changes(characterization_graph_data, char_changes, "Characterization")
+                        logger.info(f"Applied Characterization changes for {file_path}")
                     except ValueError as e:
                         logger.error(f"Characterization Validation JSON Parsing Error: {e}. No changes applied. Output: {llm_output_char_check}")
                     except Exception as e_apply:
@@ -430,6 +444,7 @@ def extract_catgraph(file_path: Path, output_dir: Path, model, model_name: str) 
             'run_id': run_id,
             'model_name': model_name, # Use model_name argument
         }
+    return result_data
 
 # --- Utility Functions ---
 

@@ -1,0 +1,11 @@
+{
+  "file": "examples/CN102039159A.md",
+  "status": "success",
+  "run_id": "CN102039159A",
+  "output_graph_file": "examples/CN102039159A_test_run/graph/CN102039159A_output.json",
+  "model_name": "openrouter_openai/gpt-5.4",
+  "usage_metadata_stage1": "{'openai/gpt-5.4-20260305': {'output_tokens': 63199, 'output_token_details': {'audio': 0, 'reasoning': 28310}, 'input_token_details': {'audio': 0, 'cache_read': 28544}, 'total_tokens': 145579, 'input_tokens': 82380}}",
+  "ml_generation_model": "openrouter_openai/gpt-5.4",
+  "ml_generation_status": "success",
+  "usage_metadata": "{'openai/gpt-5.4-20260305': {'output_tokens': 81573, 'output_token_details': {'audio': 0, 'reasoning': 44653}, 'input_token_details': {'audio': 0, 'cache_read': 28544}, 'total_tokens': 190366, 'input_tokens': 108793}}"
+}

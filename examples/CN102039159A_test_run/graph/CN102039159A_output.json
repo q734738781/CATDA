@@ -1,0 +1,2328 @@
+{
+  "synthesis": {
+    "nodes": [
+      {
+        "id": "chem_euo_molecular_sieve",
+        "type": "chemical",
+        "name": "EUO分子筛",
+        "aliases": [
+          "所用 EUO分子筛",
+          "EUO 结构分子筛"
+        ],
+        "properties": {
+          "silicon-to-aluminum molar ratio": {
+            "value": 63,
+            "unit": "molar ratio"
+          },
+          "specific surface area": {
+            "value": 449,
+            "unit": "m2/g"
+          },
+          "pore volume": {
+            "value": 0.19,
+            "unit": "mL/g"
+          },
+          "micropore channel structure": {
+            "value": "一维微孔孔道结构",
+            "unit": "description"
+          },
+          "ten-membered ring straight channel size": {
+            "value": "0.58×0.41",
+            "unit": "nm"
+          },
+          "twelve-membered ring side pocket size": {
+            "value": "0.68×0.58×0.81",
+            "unit": "nm"
+          }
+        }
+      },
+      {
+        "id": "chem_ammonium_cation",
+        "type": "chemical",
+        "name": "铵阳离子",
+        "aliases": [],
+        "formula": "NH4+",
+        "properties": {}
+      },
+      {
+        "id": "chem_acidic_euo_molecular_sieve",
+        "type": "chemical",
+        "name": "酸性EUO分子筛",
+        "aliases": [
+          "氢型EUO分子筛"
+        ],
+        "properties": {}
+      },
+      {
+        "id": "chem_alumina",
+        "type": "chemical",
+        "name": "氧化铝粉",
+        "aliases": [
+          "氧化铝"
+        ],
+        "formula": "Al2O3",
+        "properties": {}
+      },
+      {
+        "id": "chem_nitric_acid_66wt",
+        "type": "chemical",
+        "name": "66wt%的硝酸",
+        "aliases": [],
+        "formula": "HNO3",
+        "composition": {
+          "HNO3": {
+            "value": 66,
+            "unit": "wt%"
+          }
+        },
+        "properties": {}
+      },
+      {
+        "id": "chem_s_1",
+        "type": "chemical",
+        "name": "S-1",
+        "aliases": [
+          "载体 S-1",
+          "上述载体 S-1"
+        ],
+        "composition": {
+          "molecular sieve": {
+            "value": 60,
+            "unit": "wt%"
+          },
+          "Al2O3": {
+            "value": "余量",
+            "unit": "balance"
+          }
+        },
+        "properties": {
+          "diameter": {
+            "value": 1.35,
+            "unit": "mm"
+          }
+        }
+      },
+      {
+        "id": "chem_pt_nh2_2c12",
+        "type": "chemical",
+        "name": "Pt(NH2)2C12",
+        "aliases": [],
+        "formula": "Pt(NH2)2C12",
+        "properties": {}
+      },
+      {
+        "id": "chem_pd_nh2_4_no3_2",
+        "type": "chemical",
+        "name": "Pd (NH2)4(NO3)2",
+        "aliases": [
+          "Pd(NH2)4(NO3)2"
+        ],
+        "formula": "Pd(NH2)4(NO3)2",
+        "properties": {}
+      },
+      {
+        "id": "chem_c_1",
+        "type": "chemical",
+        "name": "C-1",
+        "aliases": [],
+        "composition": {
+          "Pt": {
+            "value": 0.4,
+            "unit": "wt%"
+          },
+          "Pd": {
+            "value": 0.8,
+            "unit": "wt%"
+          }
+        },
+        "properties": {
+          "specific surface area": {
+            "value": 152,
+            "unit": "m2/g"
+          },
+          "pore volume": {
+            "value": 0.25,
+            "unit": "mL/g"
+          }
+        },
+        "is_tested_catalyst": true
+      },
+      {
+        "id": "chem_h2ptc16",
+        "type": "chemical",
+        "name": "H2PtC16",
+        "aliases": [
+          "氯铂酸"
+        ],
+        "formula": "H2PtC16",
+        "properties": {}
+      },
+      {
+        "id": "chem_phosphoric_acid",
+        "type": "chemical",
+        "name": "磷酸",
+        "aliases": [],
+        "formula": "H3PO4",
+        "properties": {}
+      },
+      {
+        "id": "chem_c_2",
+        "type": "chemical",
+        "name": "C-2",
+        "aliases": [],
+        "composition": {
+          "Pt": {
+            "value": 1.0,
+            "unit": "wt%"
+          },
+          "P": {
+            "value": 1.4,
+            "unit": "wt%"
+          }
+        },
+        "properties": {
+          "specific surface area": {
+            "value": 160,
+            "unit": "m2/g"
+          },
+          "pore volume": {
+            "value": 0.26,
+            "unit": "mL/g"
+          }
+        },
+        "is_tested_catalyst": true
+      },
+      {
+        "id": "chem_pdc12",
+        "type": "chemical",
+        "name": "PdC12",
+        "aliases": [
+          "氯化钯"
+        ],
+        "formula": "PdC12",
+        "properties": {}
+      },
+      {
+        "id": "chem_c_3",
+        "type": "chemical",
+        "name": "C-3",
+        "aliases": [],
+        "composition": {
+          "Pd": {
+            "value": 1.2,
+            "unit": "wt%"
+          }
+        },
+        "properties": {
+          "specific surface area": {
+            "value": 168,
+            "unit": "m2/g"
+          },
+          "pore volume": {
+            "value": 0.23,
+            "unit": "mL/g"
+          }
+        },
+        "is_tested_catalyst": true
+      },
+      {
+        "id": "chem_zinc_acetate",
+        "type": "chemical",
+        "name": "醋酸锌",
+        "aliases": [],
+        "formula": "Zn(CH3COO)2",
+        "properties": {}
+      },
+      {
+        "id": "chem_e_1",
+        "type": "chemical",
+        "name": "E-1",
+        "aliases": [],
+        "composition": {
+          "Pt": {
+            "value": 0.6,
+            "unit": "wt%"
+          },
+          "Zn": {
+            "value": 2.4,
+            "unit": "wt%"
+          }
+        },
+        "properties": {
+          "specific surface area": {
+            "value": 180,
+            "unit": "m2/g"
+          },
+          "pore volume": {
+            "value": 0.28,
+            "unit": "mL/g"
+          }
+        },
+        "is_tested_catalyst": true
+      },
+      {
+        "id": "chem_palladium_nitrate",
+        "type": "chemical",
+        "name": "硝酸钯",
+        "aliases": [],
+        "formula": "Pd(NO3)2",
+        "properties": {}
+      },
+      {
+        "id": "chem_zinc_chloride",
+        "type": "chemical",
+        "name": "氯化锌",
+        "aliases": [],
+        "formula": "ZnCl2",
+        "properties": {}
+      },
+      {
+        "id": "chem_e_2",
+        "type": "chemical",
+        "name": "E-2",
+        "aliases": [],
+        "composition": {
+          "Pd": {
+            "value": 0.8,
+            "unit": "wt%"
+          },
+          "Zn": {
+            "value": 0.6,
+            "unit": "wt%"
+          }
+        },
+        "properties": {
+          "specific surface area": {
+            "value": 192,
+            "unit": "m2/g"
+          },
+          "pore volume": {
+            "value": 0.27,
+            "unit": "mL/g"
+          }
+        },
+        "is_tested_catalyst": true
+      },
+      {
+        "id": "chem_zinc_nitrate",
+        "type": "chemical",
+        "name": "硝酸锌",
+        "aliases": [],
+        "formula": "Zn(NO3)2",
+        "properties": {}
+      },
+      {
+        "id": "chem_e_3",
+        "type": "chemical",
+        "name": "E-3",
+        "aliases": [],
+        "composition": {
+          "Pt": {
+            "value": 0.3,
+            "unit": "wt%"
+          },
+          "Zn": {
+            "value": 4.7,
+            "unit": "wt%"
+          },
+          "P": {
+            "value": 2.2,
+            "unit": "wt%"
+          }
+        },
+        "properties": {
+          "specific surface area": {
+            "value": 198,
+            "unit": "m2/g"
+          },
+          "pore volume": {
+            "value": 0.23,
+            "unit": "mL/g"
+          }
+        },
+        "is_tested_catalyst": true
+      },
+      {
+        "id": "chem_water",
+        "type": "chemical",
+        "name": "水",
+        "aliases": [
+          "水溶液"
+        ],
+        "formula": "H2O",
+        "properties": {}
+      },
+      {
+        "id": "chem_e_4",
+        "type": "chemical",
+        "name": "E-4",
+        "aliases": [],
+        "composition": {
+          "Pt": {
+            "value": 0.2,
+            "unit": "wt%"
+          },
+          "Zn": {
+            "value": 1.2,
+            "unit": "wt%"
+          },
+          "Pd": {
+            "value": 0.4,
+            "unit": "wt%"
+          }
+        },
+        "properties": {
+          "specific surface area": {
+            "value": 202,
+            "unit": "m2/g"
+          },
+          "pore volume": {
+            "value": 0.25,
+            "unit": "mL/g"
+          }
+        },
+        "is_tested_catalyst": true
+      },
+      {
+        "id": "chem_ammonium_dihydrogen_phosphate",
+        "type": "chemical",
+        "name": "磷酸二氢铵",
+        "aliases": [],
+        "formula": "NH4H2PO4",
+        "properties": {}
+      },
+      {
+        "id": "chem_e_5",
+        "type": "chemical",
+        "name": "E-5",
+        "aliases": [],
+        "composition": {
+          "Zn": {
+            "value": 0.2,
+            "unit": "wt%"
+          },
+          "Pd": {
+            "value": 1.8,
+            "unit": "wt%"
+          },
+          "P2O5": {
+            "value": 0.5,
+            "unit": "wt%"
+          }
+        },
+        "properties": {
+          "specific surface area": {
+            "value": 210,
+            "unit": "m2/g"
+          },
+          "pore volume": {
+            "value": 0.3,
+            "unit": "mL/g"
+          }
+        },
+        "is_tested_catalyst": true
+      },
+      {
+        "id": "chem_boric_acid",
+        "type": "chemical",
+        "name": "硼酸",
+        "aliases": [],
+        "formula": "H3BO3",
+        "properties": {}
+      },
+      {
+        "id": "chem_platinum_ammine_chloride_complex",
+        "type": "chemical",
+        "name": "氯化亚铂胺配合物",
+        "aliases": [],
+        "properties": {}
+      },
+      {
+        "id": "chem_palladium_ammine_chloride_complex",
+        "type": "chemical",
+        "name": "氯化钯胺配合物",
+        "aliases": [],
+        "properties": {}
+      },
+      {
+        "id": "chem_e_6",
+        "type": "chemical",
+        "name": "E-6",
+        "aliases": [],
+        "composition": {
+          "Zn": {
+            "value": 0.2,
+            "unit": "wt%"
+          },
+          "Pd": {
+            "value": 1.8,
+            "unit": "wt%"
+          },
+          "B2O3": {
+            "value": 1.0,
+            "unit": "wt%"
+          }
+        },
+        "properties": {
+          "specific surface area": {
+            "value": 220,
+            "unit": "m2/g"
+          },
+          "pore volume": {
+            "value": 0.31,
+            "unit": "mL/g"
+          }
+        },
+        "is_tested_catalyst": true
+      },
+      {
+        "id": "synth_step_1",
+        "type": "synthesis",
+        "name": "EUO molecular sieve preparation",
+        "procedure": "本发明所用 EUO分子筛是按照美国专利US6733658 实施例 3 的方法制备,得到的分子筛硅铝摩尔比为63,比表面积449m2/,孔容0.19mL/g。",
+        "method": "reference synthesis",
+        "conditions": {},
+        "source_text": "本发明所用 EUO分子筛是按照美国专利US6733658 实施例 3 的方法制备...孔容0.19mL/g"
+      },
+      {
+        "id": "synth_step_2",
+        "type": "synthesis",
+        "name": "Ammonium exchange and calcination",
+        "procedure": "上述合成的沸石含有碱金属或碱土金属的阳离子,与铵阳离子进行交换,随后经过316℃~540℃的空气中焙烧 1~10小时,此种形成酸性沸石是本领域中熟知的。",
+        "method": "ion exchange",
+        "conditions": {
+          "calcination_temperature": {
+            "value": "316~540",
+            "unit": "℃"
+          },
+          "calcination_time": {
+            "value": "1~10",
+            "unit": "h"
+          },
+          "atmosphere": {
+            "value": "空气",
+            "unit": "atmosphere"
+          }
+        },
+        "source_text": "上述合成的沸石含有碱金属或碱土金属的阳离子,与铵阳离子进行交换...形成酸性沸石"
+      },
+      {
+        "id": "synth_step_3",
+        "type": "synthesis",
+        "name": "Carrier S-1 extrusion",
+        "procedure": "将步骤(1)所得的酸性EUO分子筛、氧化铝粉充分混合,加入66wt%的硝酸混捏成可塑的膏状物,挤成直径为 1.5mm 的圆柱条,经过110℃干燥8h,然后在空气气氛中550℃焙烧6h,制得直径为 1.35mm 的载体记做 S-1,其中载体中分子筛的含量为60wt%,余量为氧化铝。",
+        "method": "extrusion calcination",
+        "conditions": {
+          "extrudate_diameter": {
+            "value": 1.5,
+            "unit": "mm"
+          },
+          "drying_temperature": {
+            "value": 110,
+            "unit": "℃"
+          },
+          "drying_time": {
+            "value": 8,
+            "unit": "h"
+          },
+          "calcination_temperature": {
+            "value": 550,
+            "unit": "℃"
+          },
+          "calcination_time": {
+            "value": 6,
+            "unit": "h"
+          },
+          "atmosphere": {
+            "value": "空气",
+            "unit": "atmosphere"
+          }
+        },
+        "source_text": "将步骤(1)所得的酸性EUO分子筛、氧化铝粉充分混合...制得直径为 1.35mm 的载体记做 S-1"
+      },
+      {
+        "id": "synth_step_4",
+        "type": "synthesis",
+        "name": "C-1 impregnation",
+        "procedure": "取200 克步骤(2)得到的载体,使用含有 Pt(NH2)2C12 和 Pd (NH2)4(NO3)2 的溶液进行饱和浸渍,然后在110℃下干燥6h,在空气气氛中380℃焙烧6h,制得含0.4wt% Pt、0.8wt% Pd 的本发明对比催化剂,编号为 C-1。",
+        "method": "saturation impregnation",
+        "conditions": {
+          "carrier_amount": {
+            "value": 200,
+            "unit": "g"
+          },
+          "drying_temperature": {
+            "value": 110,
+            "unit": "℃"
+          },
+          "drying_time": {
+            "value": 6,
+            "unit": "h"
+          },
+          "calcination_temperature": {
+            "value": 380,
+            "unit": "℃"
+          },
+          "calcination_time": {
+            "value": 6,
+            "unit": "h"
+          },
+          "atmosphere": {
+            "value": "空气",
+            "unit": "atmosphere"
+          }
+        },
+        "source_text": "取200 克步骤(2)得到的载体...制得含0.4wt% Pt、0.8wt% Pd 的本发明对比催化剂,编号为 C-1"
+      },
+      {
+        "id": "synth_step_5",
+        "type": "synthesis",
+        "name": "C-2 impregnation",
+        "procedure": "载体的制备同比较例 1。取200 克上述载体 S-1,使用含有 H2PtC16 和磷酸的溶液进行饱和浸渍,然后在120℃干燥12h,在空气气氛中 480℃焙烧 8h,制得含 1.0wt% Pt、1.4wt% P的对比催化剂,编号为 C-2。",
+        "method": "saturation impregnation",
+        "conditions": {
+          "carrier_amount": {
+            "value": 200,
+            "unit": "g"
+          },
+          "drying_temperature": {
+            "value": 120,
+            "unit": "℃"
+          },
+          "drying_time": {
+            "value": 12,
+            "unit": "h"
+          },
+          "calcination_temperature": {
+            "value": 480,
+            "unit": "℃"
+          },
+          "calcination_time": {
+            "value": 8,
+            "unit": "h"
+          },
+          "atmosphere": {
+            "value": "空气",
+            "unit": "atmosphere"
+          }
+        },
+        "source_text": "取200 克上述载体 S-1,使用含有 H2PtC16 和磷酸的溶液进行饱和浸渍...编号为 C-2"
+      },
+      {
+        "id": "synth_step_6",
+        "type": "synthesis",
+        "name": "C-3 ion exchange",
+        "procedure": "载体的制备同比较例 1。取200 克上述载体 S-1,使用含有PdC12 的溶液在 45℃进行离子交换48 小时,然后在80℃下干燥24h,在空气气氛中550℃焙烧 2h,制得含1.2wt% Pd 的对比催化剂,编号为 C-3。",
+        "method": "ion exchange",
+        "conditions": {
+          "carrier_amount": {
+            "value": 200,
+            "unit": "g"
+          },
+          "exchange_temperature": {
+            "value": 45,
+            "unit": "℃"
+          },
+          "exchange_time": {
+            "value": 48,
+            "unit": "h"
+          },
+          "drying_temperature": {
+            "value": 80,
+            "unit": "℃"
+          },
+          "drying_time": {
+            "value": 24,
+            "unit": "h"
+          },
+          "calcination_temperature": {
+            "value": 550,
+            "unit": "℃"
+          },
+          "calcination_time": {
+            "value": 2,
+            "unit": "h"
+          },
+          "atmosphere": {
+            "value": "空气",
+            "unit": "atmosphere"
+          }
+        },
+        "source_text": "取200 克上述载体 S-1,使用含有PdC12 的溶液在 45℃进行离子交换48 小时...编号为 C-3"
+      },
+      {
+        "id": "synth_step_7",
+        "type": "synthesis",
+        "name": "E-1 impregnation",
+        "procedure": "取 200克 S-1 载体,使用含有H2PtC16和醋酸锌的溶液饱和浸渍,然后再100℃干燥8小时,在空气气氛中500℃焙烧3h,制得含0.6wt% Pt 和 2.4wt% Zn 的本发明催化剂,编号为E-1。",
+        "method": "saturation impregnation",
+        "conditions": {
+          "carrier_amount": {
+            "value": 200,
+            "unit": "g"
+          },
+          "drying_temperature": {
+            "value": 100,
+            "unit": "℃"
+          },
+          "drying_time": {
+            "value": 8,
+            "unit": "h"
+          },
+          "calcination_temperature": {
+            "value": 500,
+            "unit": "℃"
+          },
+          "calcination_time": {
+            "value": 3,
+            "unit": "h"
+          },
+          "atmosphere": {
+            "value": "空气",
+            "unit": "atmosphere"
+          }
+        },
+        "source_text": "取 200克 S-1 载体,使用含有H2PtC16和醋酸锌的溶液饱和浸渍...编号为E-1"
+      },
+      {
+        "id": "synth_step_8",
+        "type": "synthesis",
+        "name": "E-2 ion exchange",
+        "procedure": "取200克 S-1 载体,使用含有硝酸钯和氯化锌的溶液在60℃进行离子交换12 小时,然后再110℃干燥6小时,在空气气氛中480℃焙烧 4h,制得含 0.8wt% Pd 和 0.6wt% Zn 的本发明催化剂,编号为E-2。",
+        "method": "ion exchange",
+        "conditions": {
+          "carrier_amount": {
+            "value": 200,
+            "unit": "g"
+          },
+          "exchange_temperature": {
+            "value": 60,
+            "unit": "℃"
+          },
+          "exchange_time": {
+            "value": 12,
+            "unit": "h"
+          },
+          "drying_temperature": {
+            "value": 110,
+            "unit": "℃"
+          },
+          "drying_time": {
+            "value": 6,
+            "unit": "h"
+          },
+          "calcination_temperature": {
+            "value": 480,
+            "unit": "℃"
+          },
+          "calcination_time": {
+            "value": 4,
+            "unit": "h"
+          },
+          "atmosphere": {
+            "value": "空气",
+            "unit": "atmosphere"
+          }
+        },
+        "source_text": "取200克 S-1 载体,使用含有硝酸钯和氯化锌的溶液在60℃进行离子交换12 小时...编号为E-2"
+      },
+      {
+        "id": "synth_step_9",
+        "type": "synthesis",
+        "name": "E-3 co-impregnation",
+        "procedure": "取200克 S-1 载体,使用含有氯铂酸、硝酸锌和磷酸的溶液饱和浸渍催化剂载体,然后再150℃干燥4小时,在空气气氛中540℃焙烧 2h,制得含 0.3wt% Pt、4.7wt% Zn 和 2.2wt% P的本发明催化剂,编号为 E-3。",
+        "method": "saturation impregnation",
+        "conditions": {
+          "carrier_amount": {
+            "value": 200,
+            "unit": "g"
+          },
+          "drying_temperature": {
+            "value": 150,
+            "unit": "℃"
+          },
+          "drying_time": {
+            "value": 4,
+            "unit": "h"
+          },
+          "calcination_temperature": {
+            "value": 540,
+            "unit": "℃"
+          },
+          "calcination_time": {
+            "value": 2,
+            "unit": "h"
+          },
+          "atmosphere": {
+            "value": "空气",
+            "unit": "atmosphere"
+          }
+        },
+        "source_text": "取200克 S-1 载体,使用含有氯铂酸、硝酸锌和磷酸的溶液饱和浸渍催化剂载体...编号为 E-3"
+      },
+      {
+        "id": "synth_step_10",
+        "type": "synthesis",
+        "name": "E-4 two-step impregnation",
+        "procedure": "取200 克 S-1 载体,用含有氯化锌的溶液饱和浸渍催化剂载体,经过 250℃干燥 4小时,得到含锌催化剂载体。再用含有氯铂酸和氯化钯的水溶液饱和浸渍含锌催化剂载体,然后再经过120℃干燥6小时,在空气气氛中400℃焙烧8h,制得含 0.2wt% Pt、1.2wt% Zn 和 0.4wt% Pd 的本发明催化剂,编号为E-4。",
+        "method": "two-step impregnation",
+        "conditions": {
+          "carrier_amount": {
+            "value": 200,
+            "unit": "g"
+          },
+          "first_drying_temperature": {
+            "value": 250,
+            "unit": "℃"
+          },
+          "first_drying_time": {
+            "value": 4,
+            "unit": "h"
+          },
+          "second_drying_temperature": {
+            "value": 120,
+            "unit": "℃"
+          },
+          "second_drying_time": {
+            "value": 6,
+            "unit": "h"
+          },
+          "calcination_temperature": {
+            "value": 400,
+            "unit": "℃"
+          },
+          "calcination_time": {
+            "value": 8,
+            "unit": "h"
+          },
+          "atmosphere": {
+            "value": "空气",
+            "unit": "atmosphere"
+          }
+        },
+        "source_text": "取200 克 S-1 载体,用含有氯化锌的溶液饱和浸渍催化剂载体...编号为E-4"
+      },
+      {
+        "id": "synth_step_11",
+        "type": "synthesis",
+        "name": "E-5 phosphorus pretreatment and impregnation",
+        "procedure": "取200克 S-1 载体,用含有磷酸二氢铵的溶液饱和浸渍催化剂载体,经过 200℃干燥2小时,得到含磷的催化剂载体。再用含有氯化钯和氯化锌的水溶液饱和浸渍含磷的催化剂载体,在经过110℃干燥 4小时,空气气氛中450℃焙烧3h,制得含 0.2wt% Zn 和 1.8wt% Pd的本发明催化剂,编号为E-5。",
+        "method": "two-step impregnation",
+        "conditions": {
+          "carrier_amount": {
+            "value": 200,
+            "unit": "g"
+          },
+          "first_drying_temperature": {
+            "value": 200,
+            "unit": "℃"
+          },
+          "first_drying_time": {
+            "value": 2,
+            "unit": "h"
+          },
+          "second_drying_temperature": {
+            "value": 110,
+            "unit": "℃"
+          },
+          "second_drying_time": {
+            "value": 4,
+            "unit": "h"
+          },
+          "calcination_temperature": {
+            "value": 450,
+            "unit": "℃"
+          },
+          "calcination_time": {
+            "value": 3,
+            "unit": "h"
+          },
+          "atmosphere": {
+            "value": "空气",
+            "unit": "atmosphere"
+          }
+        },
+        "source_text": "取200克 S-1 载体,用含有磷酸二氢铵的溶液饱和浸渍催化剂载体...编号为E-5"
+      },
+      {
+        "id": "synth_step_12",
+        "type": "synthesis",
+        "name": "E-6 zinc-boron pretreatment and impregnation",
+        "procedure": "取200克 S-1 载体,用含有硝酸锌和硼酸的溶液饱和浸渍催化剂载体,经过100℃干燥4小时和400℃焙烧2小时,得到含锌和硼的催化剂载体。再用含有氯化亚铂胺配合物和氯化钯胺配合物的水溶液饱和浸渍含锌和硼的催化剂载体,在经过110℃干燥4 小时,空气气氛中450℃焙烧 3h,制得含 0.2wt% Zn 和 1.8wt% Pd 的本发明催化剂,编号为 E-6。",
+        "method": "two-step impregnation",
+        "conditions": {
+          "carrier_amount": {
+            "value": 200,
+            "unit": "g"
+          },
+          "first_drying_temperature": {
+            "value": 100,
+            "unit": "℃"
+          },
+          "first_drying_time": {
+            "value": 4,
+            "unit": "h"
+          },
+          "first_calcination_temperature": {
+            "value": 400,
+            "unit": "℃"
+          },
+          "first_calcination_time": {
+            "value": 2,
+            "unit": "h"
+          },
+          "second_drying_temperature": {
+            "value": 110,
+            "unit": "℃"
+          },
+          "second_drying_time": {
+            "value": 4,
+            "unit": "h"
+          },
+          "second_calcination_temperature": {
+            "value": 450,
+            "unit": "℃"
+          },
+          "second_calcination_time": {
+            "value": 3,
+            "unit": "h"
+          },
+          "atmosphere": {
+            "value": "空气",
+            "unit": "atmosphere"
+          }
+        },
+        "source_text": "取200克 S-1 载体,用含有硝酸锌和硼酸的溶液饱和浸渍催化剂载体...编号为 E-6"
+      }
+    ],
+    "edges": [
+      {
+        "id": "edge_output_synth_step_1_chem_euo_molecular_sieve",
+        "type": "synthesis_output",
+        "source_id": "synth_step_1",
+        "target_id": "chem_euo_molecular_sieve",
+        "properties": {
+          "form": "molecular sieve"
+        }
+      },
+      {
+        "id": "edge_input_chem_euo_molecular_sieve_synth_step_2",
+        "type": "synthesis_input",
+        "source_id": "chem_euo_molecular_sieve",
+        "target_id": "synth_step_2",
+        "properties": {
+          "role": "reactant"
+        }
+      },
+      {
+        "id": "edge_input_chem_ammonium_cation_synth_step_2",
+        "type": "synthesis_input",
+        "source_id": "chem_ammonium_cation",
+        "target_id": "synth_step_2",
+        "properties": {
+          "role": "reagent"
+        }
+      },
+      {
+        "id": "edge_output_synth_step_2_chem_acidic_euo_molecular_sieve",
+        "type": "synthesis_output",
+        "source_id": "synth_step_2",
+        "target_id": "chem_acidic_euo_molecular_sieve",
+        "properties": {
+          "form": "acidic calcined molecular sieve"
+        }
+      },
+      {
+        "id": "edge_input_chem_acidic_euo_molecular_sieve_synth_step_3",
+        "type": "synthesis_input",
+        "source_id": "chem_acidic_euo_molecular_sieve",
+        "target_id": "synth_step_3",
+        "properties": {
+          "role": "reactant"
+        }
+      },
+      {
+        "id": "edge_input_chem_alumina_synth_step_3",
+        "type": "synthesis_input",
+        "source_id": "chem_alumina",
+        "target_id": "synth_step_3",
+        "properties": {
+          "role": "Additive"
+        }
+      },
+      {
+        "id": "edge_input_chem_nitric_acid_66wt_synth_step_3",
+        "type": "synthesis_input",
+        "source_id": "chem_nitric_acid_66wt",
+        "target_id": "synth_step_3",
+        "properties": {
+          "role": "reagent"
+        }
+      },
+      {
+        "id": "edge_output_synth_step_3_chem_s_1",
+        "type": "synthesis_output",
+        "source_id": "synth_step_3",
+        "target_id": "chem_s_1",
+        "properties": {
+          "form": "calcined carrier"
+        }
+      },
+      {
+        "id": "edge_input_chem_s_1_synth_step_4",
+        "type": "synthesis_input",
+        "source_id": "chem_s_1",
+        "target_id": "synth_step_4",
+        "properties": {
+          "role": "reactant",
+          "amount": {
+            "value": 200,
+            "unit": "g"
+          }
+        }
+      },
+      {
+        "id": "edge_input_chem_pt_nh2_2c12_synth_step_4",
+        "type": "synthesis_input",
+        "source_id": "chem_pt_nh2_2c12",
+        "target_id": "synth_step_4",
+        "properties": {
+          "role": "reagent"
+        }
+      },
+      {
+        "id": "edge_input_chem_pd_nh2_4_no3_2_synth_step_4",
+        "type": "synthesis_input",
+        "source_id": "chem_pd_nh2_4_no3_2",
+        "target_id": "synth_step_4",
+        "properties": {
+          "role": "reagent"
+        }
+      },
+      {
+        "id": "edge_output_synth_step_4_chem_c_1",
+        "type": "synthesis_output",
+        "source_id": "synth_step_4",
+        "target_id": "chem_c_1",
+        "properties": {
+          "form": "calcined catalyst"
+        }
+      },
+      {
+        "id": "edge_input_chem_s_1_synth_step_5",
+        "type": "synthesis_input",
+        "source_id": "chem_s_1",
+        "target_id": "synth_step_5",
+        "properties": {
+          "role": "reactant",
+          "amount": {
+            "value": 200,
+            "unit": "g"
+          }
+        }
+      },
+      {
+        "id": "edge_input_chem_h2ptc16_synth_step_5",
+        "type": "synthesis_input",
+        "source_id": "chem_h2ptc16",
+        "target_id": "synth_step_5",
+        "properties": {
+          "role": "reagent"
+        }
+      },
+      {
+        "id": "edge_input_chem_phosphoric_acid_synth_step_5",
+        "type": "synthesis_input",
+        "source_id": "chem_phosphoric_acid",
+        "target_id": "synth_step_5",
+        "properties": {
+          "role": "Additive"
+        }
+      },
+      {
+        "id": "edge_output_synth_step_5_chem_c_2",
+        "type": "synthesis_output",
+        "source_id": "synth_step_5",
+        "target_id": "chem_c_2",
+        "properties": {
+          "form": "calcined catalyst"
+        }
+      },
+      {
+        "id": "edge_input_chem_s_1_synth_step_6",
+        "type": "synthesis_input",
+        "source_id": "chem_s_1",
+        "target_id": "synth_step_6",
+        "properties": {
+          "role": "reactant",
+          "amount": {
+            "value": 200,
+            "unit": "g"
+          }
+        }
+      },
+      {
+        "id": "edge_input_chem_pdc12_synth_step_6",
+        "type": "synthesis_input",
+        "source_id": "chem_pdc12",
+        "target_id": "synth_step_6",
+        "properties": {
+          "role": "reagent"
+        }
+      },
+      {
+        "id": "edge_output_synth_step_6_chem_c_3",
+        "type": "synthesis_output",
+        "source_id": "synth_step_6",
+        "target_id": "chem_c_3",
+        "properties": {
+          "form": "calcined catalyst"
+        }
+      },
+      {
+        "id": "edge_input_chem_s_1_synth_step_7",
+        "type": "synthesis_input",
+        "source_id": "chem_s_1",
+        "target_id": "synth_step_7",
+        "properties": {
+          "role": "reactant",
+          "amount": {
+            "value": 200,
+            "unit": "g"
+          }
+        }
+      },
+      {
+        "id": "edge_input_chem_h2ptc16_synth_step_7",
+        "type": "synthesis_input",
+        "source_id": "chem_h2ptc16",
+        "target_id": "synth_step_7",
+        "properties": {
+          "role": "reagent"
+        }
+      },
+      {
+        "id": "edge_input_chem_zinc_acetate_synth_step_7",
+        "type": "synthesis_input",
+        "source_id": "chem_zinc_acetate",
+        "target_id": "synth_step_7",
+        "properties": {
+          "role": "reagent"
+        }
+      },
+      {
+        "id": "edge_output_synth_step_7_chem_e_1",
+        "type": "synthesis_output",
+        "source_id": "synth_step_7",
+        "target_id": "chem_e_1",
+        "properties": {
+          "form": "calcined catalyst"
+        }
+      },
+      {
+        "id": "edge_input_chem_s_1_synth_step_8",
+        "type": "synthesis_input",
+        "source_id": "chem_s_1",
+        "target_id": "synth_step_8",
+        "properties": {
+          "role": "reactant",
+          "amount": {
+            "value": 200,
+            "unit": "g"
+          }
+        }
+      },
+      {
+        "id": "edge_input_chem_palladium_nitrate_synth_step_8",
+        "type": "synthesis_input",
+        "source_id": "chem_palladium_nitrate",
+        "target_id": "synth_step_8",
+        "properties": {
+          "role": "reagent"
+        }
+      },
+      {
+        "id": "edge_input_chem_zinc_chloride_synth_step_8",
+        "type": "synthesis_input",
+        "source_id": "chem_zinc_chloride",
+        "target_id": "synth_step_8",
+        "properties": {
+          "role": "reagent"
+        }
+      },
+      {
+        "id": "edge_output_synth_step_8_chem_e_2",
+        "type": "synthesis_output",
+        "source_id": "synth_step_8",
+        "target_id": "chem_e_2",
+        "properties": {
+          "form": "calcined catalyst"
+        }
+      },
+      {
+        "id": "edge_input_chem_s_1_synth_step_9",
+        "type": "synthesis_input",
+        "source_id": "chem_s_1",
+        "target_id": "synth_step_9",
+        "properties": {
+          "role": "reactant",
+          "amount": {
+            "value": 200,
+            "unit": "g"
+          }
+        }
+      },
+      {
+        "id": "edge_input_chem_h2ptc16_synth_step_9",
+        "type": "synthesis_input",
+        "source_id": "chem_h2ptc16",
+        "target_id": "synth_step_9",
+        "properties": {
+          "role": "reagent"
+        }
+      },
+      {
+        "id": "edge_input_chem_zinc_nitrate_synth_step_9",
+        "type": "synthesis_input",
+        "source_id": "chem_zinc_nitrate",
+        "target_id": "synth_step_9",
+        "properties": {
+          "role": "reagent"
+        }
+      },
+      {
+        "id": "edge_input_chem_phosphoric_acid_synth_step_9",
+        "type": "synthesis_input",
+        "source_id": "chem_phosphoric_acid",
+        "target_id": "synth_step_9",
+        "properties": {
+          "role": "Additive"
+        }
+      },
+      {
+        "id": "edge_output_synth_step_9_chem_e_3",
+        "type": "synthesis_output",
+        "source_id": "synth_step_9",
+        "target_id": "chem_e_3",
+        "properties": {
+          "form": "calcined catalyst"
+        }
+      },
+      {
+        "id": "edge_input_chem_s_1_synth_step_10",
+        "type": "synthesis_input",
+        "source_id": "chem_s_1",
+        "target_id": "synth_step_10",
+        "properties": {
+          "role": "reactant",
+          "amount": {
+            "value": 200,
+            "unit": "g"
+          }
+        }
+      },
+      {
+        "id": "edge_input_chem_zinc_chloride_synth_step_10",
+        "type": "synthesis_input",
+        "source_id": "chem_zinc_chloride",
+        "target_id": "synth_step_10",
+        "properties": {
+          "role": "reagent"
+        }
+      },
+      {
+        "id": "edge_input_chem_h2ptc16_synth_step_10",
+        "type": "synthesis_input",
+        "source_id": "chem_h2ptc16",
+        "target_id": "synth_step_10",
+        "properties": {
+          "role": "reagent"
+        }
+      },
+      {
+        "id": "edge_input_chem_pdc12_synth_step_10",
+        "type": "synthesis_input",
+        "source_id": "chem_pdc12",
+        "target_id": "synth_step_10",
+        "properties": {
+          "role": "reagent"
+        }
+      },
+      {
+        "id": "edge_input_chem_water_synth_step_10",
+        "type": "synthesis_input",
+        "source_id": "chem_water",
+        "target_id": "synth_step_10",
+        "properties": {
+          "role": "solvent"
+        }
+      },
+      {
+        "id": "edge_output_synth_step_10_chem_e_4",
+        "type": "synthesis_output",
+        "source_id": "synth_step_10",
+        "target_id": "chem_e_4",
+        "properties": {
+          "form": "calcined catalyst"
+        }
+      },
+      {
+        "id": "edge_input_chem_s_1_synth_step_11",
+        "type": "synthesis_input",
+        "source_id": "chem_s_1",
+        "target_id": "synth_step_11",
+        "properties": {
+          "role": "reactant",
+          "amount": {
+            "value": 200,
+            "unit": "g"
+          }
+        }
+      },
+      {
+        "id": "edge_input_chem_ammonium_dihydrogen_phosphate_synth_step_11",
+        "type": "synthesis_input",
+        "source_id": "chem_ammonium_dihydrogen_phosphate",
+        "target_id": "synth_step_11",
+        "properties": {
+          "role": "Additive"
+        }
+      },
+      {
+        "id": "edge_input_chem_pdc12_synth_step_11",
+        "type": "synthesis_input",
+        "source_id": "chem_pdc12",
+        "target_id": "synth_step_11",
+        "properties": {
+          "role": "reagent"
+        }
+      },
+      {
+        "id": "edge_input_chem_zinc_chloride_synth_step_11",
+        "type": "synthesis_input",
+        "source_id": "chem_zinc_chloride",
+        "target_id": "synth_step_11",
+        "properties": {
+          "role": "reagent"
+        }
+      },
+      {
+        "id": "edge_input_chem_water_synth_step_11",
+        "type": "synthesis_input",
+        "source_id": "chem_water",
+        "target_id": "synth_step_11",
+        "properties": {
+          "role": "solvent"
+        }
+      },
+      {
+        "id": "edge_output_synth_step_11_chem_e_5",
+        "type": "synthesis_output",
+        "source_id": "synth_step_11",
+        "target_id": "chem_e_5",
+        "properties": {
+          "form": "calcined catalyst"
+        }
+      },
+      {
+        "id": "edge_input_chem_s_1_synth_step_12",
+        "type": "synthesis_input",
+        "source_id": "chem_s_1",
+        "target_id": "synth_step_12",
+        "properties": {
+          "role": "reactant",
+          "amount": {
+            "value": 200,
+            "unit": "g"
+          }
+        }
+      },
+      {
+        "id": "edge_input_chem_zinc_nitrate_synth_step_12",
+        "type": "synthesis_input",
+        "source_id": "chem_zinc_nitrate",
+        "target_id": "synth_step_12",
+        "properties": {
+          "role": "reagent"
+        }
+      },
+      {
+        "id": "edge_input_chem_boric_acid_synth_step_12",
+        "type": "synthesis_input",
+        "source_id": "chem_boric_acid",
+        "target_id": "synth_step_12",
+        "properties": {
+          "role": "Additive"
+        }
+      },
+      {
+        "id": "edge_input_chem_platinum_ammine_chloride_complex_synth_step_12",
+        "type": "synthesis_input",
+        "source_id": "chem_platinum_ammine_chloride_complex",
+        "target_id": "synth_step_12",
+        "properties": {
+          "role": "reagent"
+        }
+      },
+      {
+        "id": "edge_input_chem_palladium_ammine_chloride_complex_synth_step_12",
+        "type": "synthesis_input",
+        "source_id": "chem_palladium_ammine_chloride_complex",
+        "target_id": "synth_step_12",
+        "properties": {
+          "role": "reagent"
+        }
+      },
+      {
+        "id": "edge_input_chem_water_synth_step_12",
+        "type": "synthesis_input",
+        "source_id": "chem_water",
+        "target_id": "synth_step_12",
+        "properties": {
+          "role": "solvent"
+        }
+      },
+      {
+        "id": "edge_output_synth_step_12_chem_e_6",
+        "type": "synthesis_output",
+        "source_id": "synth_step_12",
+        "target_id": "chem_e_6",
+        "properties": {
+          "form": "calcined catalyst"
+        }
+      }
+    ],
+    "catalyst_tested_ids": [
+      "chem_c_1",
+      "chem_c_2",
+      "chem_c_3",
+      "chem_e_1",
+      "chem_e_2",
+      "chem_e_3",
+      "chem_e_4",
+      "chem_e_5",
+      "chem_e_6"
+    ]
+  },
+  "testing": {
+    "nodes": [
+      {
+        "id": "test_1",
+        "type": "testing",
+        "catalyst_id": "chem_c_1",
+        "description": "C8 aromatic isomerization and ethylbenzene conversion test for C-1 at 380°C",
+        "conditions_json": {
+          "experimental_setup": {
+            "value": "中试装置",
+            "unit": "descriptive"
+          },
+          "catalyst_volume": {
+            "value": 100,
+            "unit": "mL"
+          },
+          "quartz_sand_dilution_volume": {
+            "value": 100,
+            "unit": "mL"
+          },
+          "pretreatment_atmosphere": {
+            "value": "氢气",
+            "unit": "gas atmosphere"
+          },
+          "pretreatment_temperature": {
+            "value": 653,
+            "unit": "K"
+          },
+          "pretreatment_time": {
+            "value": 4,
+            "unit": "h"
+          },
+          "ethylbenzene_in_feed": {
+            "value": 7.9,
+            "unit": "vol%"
+          },
+          "para_xylene_in_feed": {
+            "value": 0.1,
+            "unit": "vol%"
+          },
+          "meta_xylene_in_feed": {
+            "value": 70.2,
+            "unit": "vol%"
+          },
+          "ortho_xylene_in_feed": {
+            "value": 21.8,
+            "unit": "vol%"
+          },
+          "reaction_pressure": {
+            "value": 1.0,
+            "unit": "MPa"
+          },
+          "WHSV": {
+            "value": 20,
+            "unit": "h^-1"
+          },
+          "hydrogen_to_hydrocarbon_molar_ratio": {
+            "value": "2:1",
+            "unit": "molar ratio"
+          },
+          "reaction_temperature": {
+            "value": 380,
+            "unit": "°C"
+          }
+        },
+        "results_json": {
+          "para_xylene_fraction_in_total_xylene": {
+            "value": 23.8,
+            "unit": "%"
+          },
+          "xylene_loss": {
+            "value": 3.8,
+            "unit": "%"
+          },
+          "ethylbenzene_conversion": {
+            "value": 41.5,
+            "unit": "%"
+          }
+        },
+        "source_text": "实验是在中试装置上完成,催化剂体积100ml,用100ml 石英砂稀释后装填入反应器,催化剂在进料前在653K氢气存在下还原 4h。表 1 原料性质(体积百分含量)：乙苯|7.9%、对二甲苯|0.1%、间二甲苯|70.2%、邻二甲苯|21.8%。表3催化剂运转条件及结果：催化剂编号|C-1|C-2|C-3|E-1|E-2|E-3|E-4|E-5|E-6；反应压力,MPa|||||1.0||||；WHSV, h|||||20||||；氢烃摩尔比|||||2: 1||||；反应温度,℃|380|390|380|380|370|390|380|390|390；pX/ΣX, %|23.8|23.7|23.8|23.7|23.9|23.8|23.9|23.9|23.8；二甲苯损失,%|3.8|2.7|4.1|1.8|1.6|1.3|1.8|1.5|1.4；乙苯转化率,%|41.5|39.4|40.6|46.5|45.1|44.1|45.8|44.6|43.5。[0059] pX 表示对二甲苯,∑ X表示二甲苯总量。"
+      },
+      {
+        "id": "test_2",
+        "type": "testing",
+        "catalyst_id": "chem_c_2",
+        "description": "C8 aromatic isomerization and ethylbenzene conversion test for C-2 at 390°C",
+        "conditions_json": {
+          "experimental_setup": {
+            "value": "中试装置",
+            "unit": "descriptive"
+          },
+          "catalyst_volume": {
+            "value": 100,
+            "unit": "mL"
+          },
+          "quartz_sand_dilution_volume": {
+            "value": 100,
+            "unit": "mL"
+          },
+          "pretreatment_atmosphere": {
+            "value": "氢气",
+            "unit": "gas atmosphere"
+          },
+          "pretreatment_temperature": {
+            "value": 653,
+            "unit": "K"
+          },
+          "pretreatment_time": {
+            "value": 4,
+            "unit": "h"
+          },
+          "ethylbenzene_in_feed": {
+            "value": 7.9,
+            "unit": "vol%"
+          },
+          "para_xylene_in_feed": {
+            "value": 0.1,
+            "unit": "vol%"
+          },
+          "meta_xylene_in_feed": {
+            "value": 70.2,
+            "unit": "vol%"
+          },
+          "ortho_xylene_in_feed": {
+            "value": 21.8,
+            "unit": "vol%"
+          },
+          "reaction_pressure": {
+            "value": 1.0,
+            "unit": "MPa"
+          },
+          "WHSV": {
+            "value": 20,
+            "unit": "h^-1"
+          },
+          "hydrogen_to_hydrocarbon_molar_ratio": {
+            "value": "2:1",
+            "unit": "molar ratio"
+          },
+          "reaction_temperature": {
+            "value": 390,
+            "unit": "°C"
+          }
+        },
+        "results_json": {
+          "para_xylene_fraction_in_total_xylene": {
+            "value": 23.7,
+            "unit": "%"
+          },
+          "xylene_loss": {
+            "value": 2.7,
+            "unit": "%"
+          },
+          "ethylbenzene_conversion": {
+            "value": 39.4,
+            "unit": "%"
+          }
+        },
+        "source_text": "实验是在中试装置上完成,催化剂体积100ml,用100ml 石英砂稀释后装填入反应器,催化剂在进料前在653K氢气存在下还原 4h。表 1 原料性质(体积百分含量)：乙苯|7.9%、对二甲苯|0.1%、间二甲苯|70.2%、邻二甲苯|21.8%。表3催化剂运转条件及结果：催化剂编号|C-1|C-2|C-3|E-1|E-2|E-3|E-4|E-5|E-6；反应压力,MPa|||||1.0||||；WHSV, h|||||20||||；氢烃摩尔比|||||2: 1||||；反应温度,℃|380|390|380|380|370|390|380|390|390；pX/ΣX, %|23.8|23.7|23.8|23.7|23.9|23.8|23.9|23.9|23.8；二甲苯损失,%|3.8|2.7|4.1|1.8|1.6|1.3|1.8|1.5|1.4；乙苯转化率,%|41.5|39.4|40.6|46.5|45.1|44.1|45.8|44.6|43.5。[0059] pX 表示对二甲苯,∑ X表示二甲苯总量。"
+      },
+      {
+        "id": "test_3",
+        "type": "testing",
+        "catalyst_id": "chem_c_3",
+        "description": "C8 aromatic isomerization and ethylbenzene conversion test for C-3 at 380°C",
+        "conditions_json": {
+          "experimental_setup": {
+            "value": "中试装置",
+            "unit": "descriptive"
+          },
+          "catalyst_volume": {
+            "value": 100,
+            "unit": "mL"
+          },
+          "quartz_sand_dilution_volume": {
+            "value": 100,
+            "unit": "mL"
+          },
+          "pretreatment_atmosphere": {
+            "value": "氢气",
+            "unit": "gas atmosphere"
+          },
+          "pretreatment_temperature": {
+            "value": 653,
+            "unit": "K"
+          },
+          "pretreatment_time": {
+            "value": 4,
+            "unit": "h"
+          },
+          "ethylbenzene_in_feed": {
+            "value": 7.9,
+            "unit": "vol%"
+          },
+          "para_xylene_in_feed": {
+            "value": 0.1,
+            "unit": "vol%"
+          },
+          "meta_xylene_in_feed": {
+            "value": 70.2,
+            "unit": "vol%"
+          },
+          "ortho_xylene_in_feed": {
+            "value": 21.8,
+            "unit": "vol%"
+          },
+          "reaction_pressure": {
+            "value": 1.0,
+            "unit": "MPa"
+          },
+          "WHSV": {
+            "value": 20,
+            "unit": "h^-1"
+          },
+          "hydrogen_to_hydrocarbon_molar_ratio": {
+            "value": "2:1",
+            "unit": "molar ratio"
+          },
+          "reaction_temperature": {
+            "value": 380,
+            "unit": "°C"
+          }
+        },
+        "results_json": {
+          "para_xylene_fraction_in_total_xylene": {
+            "value": 23.8,
+            "unit": "%"
+          },
+          "xylene_loss": {
+            "value": 4.1,
+            "unit": "%"
+          },
+          "ethylbenzene_conversion": {
+            "value": 40.6,
+            "unit": "%"
+          }
+        },
+        "source_text": "实验是在中试装置上完成,催化剂体积100ml,用100ml 石英砂稀释后装填入反应器,催化剂在进料前在653K氢气存在下还原 4h。表 1 原料性质(体积百分含量)：乙苯|7.9%、对二甲苯|0.1%、间二甲苯|70.2%、邻二甲苯|21.8%。表3催化剂运转条件及结果：催化剂编号|C-1|C-2|C-3|E-1|E-2|E-3|E-4|E-5|E-6；反应压力,MPa|||||1.0||||；WHSV, h|||||20||||；氢烃摩尔比|||||2: 1||||；反应温度,℃|380|390|380|380|370|390|380|390|390；pX/ΣX, %|23.8|23.7|23.8|23.7|23.9|23.8|23.9|23.9|23.8；二甲苯损失,%|3.8|2.7|4.1|1.8|1.6|1.3|1.8|1.5|1.4；乙苯转化率,%|41.5|39.4|40.6|46.5|45.1|44.1|45.8|44.6|43.5。[0059] pX 表示对二甲苯,∑ X表示二甲苯总量。"
+      },
+      {
+        "id": "test_4",
+        "type": "testing",
+        "catalyst_id": "chem_e_1",
+        "description": "C8 aromatic isomerization and ethylbenzene conversion test for E-1 at 380°C",
+        "conditions_json": {
+          "experimental_setup": {
+            "value": "中试装置",
+            "unit": "descriptive"
+          },
+          "catalyst_volume": {
+            "value": 100,
+            "unit": "mL"
+          },
+          "quartz_sand_dilution_volume": {
+            "value": 100,
+            "unit": "mL"
+          },
+          "pretreatment_atmosphere": {
+            "value": "氢气",
+            "unit": "gas atmosphere"
+          },
+          "pretreatment_temperature": {
+            "value": 653,
+            "unit": "K"
+          },
+          "pretreatment_time": {
+            "value": 4,
+            "unit": "h"
+          },
+          "ethylbenzene_in_feed": {
+            "value": 7.9,
+            "unit": "vol%"
+          },
+          "para_xylene_in_feed": {
+            "value": 0.1,
+            "unit": "vol%"
+          },
+          "meta_xylene_in_feed": {
+            "value": 70.2,
+            "unit": "vol%"
+          },
+          "ortho_xylene_in_feed": {
+            "value": 21.8,
+            "unit": "vol%"
+          },
+          "reaction_pressure": {
+            "value": 1.0,
+            "unit": "MPa"
+          },
+          "WHSV": {
+            "value": 20,
+            "unit": "h^-1"
+          },
+          "hydrogen_to_hydrocarbon_molar_ratio": {
+            "value": "2:1",
+            "unit": "molar ratio"
+          },
+          "reaction_temperature": {
+            "value": 380,
+            "unit": "°C"
+          }
+        },
+        "results_json": {
+          "para_xylene_fraction_in_total_xylene": {
+            "value": 23.7,
+            "unit": "%"
+          },
+          "xylene_loss": {
+            "value": 1.8,
+            "unit": "%"
+          },
+          "ethylbenzene_conversion": {
+            "value": 46.5,
+            "unit": "%"
+          }
+        },
+        "source_text": "实验是在中试装置上完成,催化剂体积100ml,用100ml 石英砂稀释后装填入反应器,催化剂在进料前在653K氢气存在下还原 4h。表 1 原料性质(体积百分含量)：乙苯|7.9%、对二甲苯|0.1%、间二甲苯|70.2%、邻二甲苯|21.8%。表3催化剂运转条件及结果：催化剂编号|C-1|C-2|C-3|E-1|E-2|E-3|E-4|E-5|E-6；反应压力,MPa|||||1.0||||；WHSV, h|||||20||||；氢烃摩尔比|||||2: 1||||；反应温度,℃|380|390|380|380|370|390|380|390|390；pX/ΣX, %|23.8|23.7|23.8|23.7|23.9|23.8|23.9|23.9|23.8；二甲苯损失,%|3.8|2.7|4.1|1.8|1.6|1.3|1.8|1.5|1.4；乙苯转化率,%|41.5|39.4|40.6|46.5|45.1|44.1|45.8|44.6|43.5。[0059] pX 表示对二甲苯,∑ X表示二甲苯总量。"
+      },
+      {
+        "id": "test_5",
+        "type": "testing",
+        "catalyst_id": "chem_e_2",
+        "description": "C8 aromatic isomerization and ethylbenzene conversion test for E-2 at 370°C",
+        "conditions_json": {
+          "experimental_setup": {
+            "value": "中试装置",
+            "unit": "descriptive"
+          },
+          "catalyst_volume": {
+            "value": 100,
+            "unit": "mL"
+          },
+          "quartz_sand_dilution_volume": {
+            "value": 100,
+            "unit": "mL"
+          },
+          "pretreatment_atmosphere": {
+            "value": "氢气",
+            "unit": "gas atmosphere"
+          },
+          "pretreatment_temperature": {
+            "value": 653,
+            "unit": "K"
+          },
+          "pretreatment_time": {
+            "value": 4,
+            "unit": "h"
+          },
+          "ethylbenzene_in_feed": {
+            "value": 7.9,
+            "unit": "vol%"
+          },
+          "para_xylene_in_feed": {
+            "value": 0.1,
+            "unit": "vol%"
+          },
+          "meta_xylene_in_feed": {
+            "value": 70.2,
+            "unit": "vol%"
+          },
+          "ortho_xylene_in_feed": {
+            "value": 21.8,
+            "unit": "vol%"
+          },
+          "reaction_pressure": {
+            "value": 1.0,
+            "unit": "MPa"
+          },
+          "WHSV": {
+            "value": 20,
+            "unit": "h^-1"
+          },
+          "hydrogen_to_hydrocarbon_molar_ratio": {
+            "value": "2:1",
+            "unit": "molar ratio"
+          },
+          "reaction_temperature": {
+            "value": 370,
+            "unit": "°C"
+          }
+        },
+        "results_json": {
+          "para_xylene_fraction_in_total_xylene": {
+            "value": 23.9,
+            "unit": "%"
+          },
+          "xylene_loss": {
+            "value": 1.6,
+            "unit": "%"
+          },
+          "ethylbenzene_conversion": {
+            "value": 45.1,
+            "unit": "%"
+          }
+        },
+        "source_text": "实验是在中试装置上完成,催化剂体积100ml,用100ml 石英砂稀释后装填入反应器,催化剂在进料前在653K氢气存在下还原 4h。表 1 原料性质(体积百分含量)：乙苯|7.9%、对二甲苯|0.1%、间二甲苯|70.2%、邻二甲苯|21.8%。表3催化剂运转条件及结果：催化剂编号|C-1|C-2|C-3|E-1|E-2|E-3|E-4|E-5|E-6；反应压力,MPa|||||1.0||||；WHSV, h|||||20||||；氢烃摩尔比|||||2: 1||||；反应温度,℃|380|390|380|380|370|390|380|390|390；pX/ΣX, %|23.8|23.7|23.8|23.7|23.9|23.8|23.9|23.9|23.8；二甲苯损失,%|3.8|2.7|4.1|1.8|1.6|1.3|1.8|1.5|1.4；乙苯转化率,%|41.5|39.4|40.6|46.5|45.1|44.1|45.8|44.6|43.5。[0059] pX 表示对二甲苯,∑ X表示二甲苯总量。"
+      },
+      {
+        "id": "test_6",
+        "type": "testing",
+        "catalyst_id": "chem_e_3",
+        "description": "C8 aromatic isomerization and ethylbenzene conversion test for E-3 at 390°C",
+        "conditions_json": {
+          "experimental_setup": {
+            "value": "中试装置",
+            "unit": "descriptive"
+          },
+          "catalyst_volume": {
+            "value": 100,
+            "unit": "mL"
+          },
+          "quartz_sand_dilution_volume": {
+            "value": 100,
+            "unit": "mL"
+          },
+          "pretreatment_atmosphere": {
+            "value": "氢气",
+            "unit": "gas atmosphere"
+          },
+          "pretreatment_temperature": {
+            "value": 653,
+            "unit": "K"
+          },
+          "pretreatment_time": {
+            "value": 4,
+            "unit": "h"
+          },
+          "ethylbenzene_in_feed": {
+            "value": 7.9,
+            "unit": "vol%"
+          },
+          "para_xylene_in_feed": {
+            "value": 0.1,
+            "unit": "vol%"
+          },
+          "meta_xylene_in_feed": {
+            "value": 70.2,
+            "unit": "vol%"
+          },
+          "ortho_xylene_in_feed": {
+            "value": 21.8,
+            "unit": "vol%"
+          },
+          "reaction_pressure": {
+            "value": 1.0,
+            "unit": "MPa"
+          },
+          "WHSV": {
+            "value": 20,
+            "unit": "h^-1"
+          },
+          "hydrogen_to_hydrocarbon_molar_ratio": {
+            "value": "2:1",
+            "unit": "molar ratio"
+          },
+          "reaction_temperature": {
+            "value": 390,
+            "unit": "°C"
+          }
+        },
+        "results_json": {
+          "para_xylene_fraction_in_total_xylene": {
+            "value": 23.8,
+            "unit": "%"
+          },
+          "xylene_loss": {
+            "value": 1.3,
+            "unit": "%"
+          },
+          "ethylbenzene_conversion": {
+            "value": 44.1,
+            "unit": "%"
+          }
+        },
+        "source_text": "实验是在中试装置上完成,催化剂体积100ml,用100ml 石英砂稀释后装填入反应器,催化剂在进料前在653K氢气存在下还原 4h。表 1 原料性质(体积百分含量)：乙苯|7.9%、对二甲苯|0.1%、间二甲苯|70.2%、邻二甲苯|21.8%。表3催化剂运转条件及结果：催化剂编号|C-1|C-2|C-3|E-1|E-2|E-3|E-4|E-5|E-6；反应压力,MPa|||||1.0||||；WHSV, h|||||20||||；氢烃摩尔比|||||2: 1||||；反应温度,℃|380|390|380|380|370|390|380|390|390；pX/ΣX, %|23.8|23.7|23.8|23.7|23.9|23.8|23.9|23.9|23.8；二甲苯损失,%|3.8|2.7|4.1|1.8|1.6|1.3|1.8|1.5|1.4；乙苯转化率,%|41.5|39.4|40.6|46.5|45.1|44.1|45.8|44.6|43.5。[0059] pX 表示对二甲苯,∑ X表示二甲苯总量。"
+      },
+      {
+        "id": "test_7",
+        "type": "testing",
+        "catalyst_id": "chem_e_4",
+        "description": "C8 aromatic isomerization and ethylbenzene conversion test for E-4 at 380°C",
+        "conditions_json": {
+          "experimental_setup": {
+            "value": "中试装置",
+            "unit": "descriptive"
+          },
+          "catalyst_volume": {
+            "value": 100,
+            "unit": "mL"
+          },
+          "quartz_sand_dilution_volume": {
+            "value": 100,
+            "unit": "mL"
+          },
+          "pretreatment_atmosphere": {
+            "value": "氢气",
+            "unit": "gas atmosphere"
+          },
+          "pretreatment_temperature": {
+            "value": 653,
+            "unit": "K"
+          },
+          "pretreatment_time": {
+            "value": 4,
+            "unit": "h"
+          },
+          "ethylbenzene_in_feed": {
+            "value": 7.9,
+            "unit": "vol%"
+          },
+          "para_xylene_in_feed": {
+            "value": 0.1,
+            "unit": "vol%"
+          },
+          "meta_xylene_in_feed": {
+            "value": 70.2,
+            "unit": "vol%"
+          },
+          "ortho_xylene_in_feed": {
+            "value": 21.8,
+            "unit": "vol%"
+          },
+          "reaction_pressure": {
+            "value": 1.0,
+            "unit": "MPa"
+          },
+          "WHSV": {
+            "value": 20,
+            "unit": "h^-1"
+          },
+          "hydrogen_to_hydrocarbon_molar_ratio": {
+            "value": "2:1",
+            "unit": "molar ratio"
+          },
+          "reaction_temperature": {
+            "value": 380,
+            "unit": "°C"
+          }
+        },
+        "results_json": {
+          "para_xylene_fraction_in_total_xylene": {
+            "value": 23.9,
+            "unit": "%"
+          },
+          "xylene_loss": {
+            "value": 1.8,
+            "unit": "%"
+          },
+          "ethylbenzene_conversion": {
+            "value": 45.8,
+            "unit": "%"
+          }
+        },
+        "source_text": "实验是在中试装置上完成,催化剂体积100ml,用100ml 石英砂稀释后装填入反应器,催化剂在进料前在653K氢气存在下还原 4h。表 1 原料性质(体积百分含量)：乙苯|7.9%、对二甲苯|0.1%、间二甲苯|70.2%、邻二甲苯|21.8%。表3催化剂运转条件及结果：催化剂编号|C-1|C-2|C-3|E-1|E-2|E-3|E-4|E-5|E-6；反应压力,MPa|||||1.0||||；WHSV, h|||||20||||；氢烃摩尔比|||||2: 1||||；反应温度,℃|380|390|380|380|370|390|380|390|390；pX/ΣX, %|23.8|23.7|23.8|23.7|23.9|23.8|23.9|23.9|23.8；二甲苯损失,%|3.8|2.7|4.1|1.8|1.6|1.3|1.8|1.5|1.4；乙苯转化率,%|41.5|39.4|40.6|46.5|45.1|44.1|45.8|44.6|43.5。[0059] pX 表示对二甲苯,∑ X表示二甲苯总量。"
+      },
+      {
+        "id": "test_8",
+        "type": "testing",
+        "catalyst_id": "chem_e_5",
+        "description": "C8 aromatic isomerization and ethylbenzene conversion test for E-5 at 390°C",
+        "conditions_json": {
+          "experimental_setup": {
+            "value": "中试装置",
+            "unit": "descriptive"
+          },
+          "catalyst_volume": {
+            "value": 100,
+            "unit": "mL"
+          },
+          "quartz_sand_dilution_volume": {
+            "value": 100,
+            "unit": "mL"
+          },
+          "pretreatment_atmosphere": {
+            "value": "氢气",
+            "unit": "gas atmosphere"
+          },
+          "pretreatment_temperature": {
+            "value": 653,
+            "unit": "K"
+          },
+          "pretreatment_time": {
+            "value": 4,
+            "unit": "h"
+          },
+          "ethylbenzene_in_feed": {
+            "value": 7.9,
+            "unit": "vol%"
+          },
+          "para_xylene_in_feed": {
+            "value": 0.1,
+            "unit": "vol%"
+          },
+          "meta_xylene_in_feed": {
+            "value": 70.2,
+            "unit": "vol%"
+          },
+          "ortho_xylene_in_feed": {
+            "value": 21.8,
+            "unit": "vol%"
+          },
+          "reaction_pressure": {
+            "value": 1.0,
+            "unit": "MPa"
+          },
+          "WHSV": {
+            "value": 20,
+            "unit": "h^-1"
+          },
+          "hydrogen_to_hydrocarbon_molar_ratio": {
+            "value": "2:1",
+            "unit": "molar ratio"
+          },
+          "reaction_temperature": {
+            "value": 390,
+            "unit": "°C"
+          }
+        },
+        "results_json": {
+          "para_xylene_fraction_in_total_xylene": {
+            "value": 23.9,
+            "unit": "%"
+          },
+          "xylene_loss": {
+            "value": 1.5,
+            "unit": "%"
+          },
+          "ethylbenzene_conversion": {
+            "value": 44.6,
+            "unit": "%"
+          }
+        },
+        "source_text": "实验是在中试装置上完成,催化剂体积100ml,用100ml 石英砂稀释后装填入反应器,催化剂在进料前在653K氢气存在下还原 4h。表 1 原料性质(体积百分含量)：乙苯|7.9%、对二甲苯|0.1%、间二甲苯|70.2%、邻二甲苯|21.8%。表3催化剂运转条件及结果：催化剂编号|C-1|C-2|C-3|E-1|E-2|E-3|E-4|E-5|E-6；反应压力,MPa|||||1.0||||；WHSV, h|||||20||||；氢烃摩尔比|||||2: 1||||；反应温度,℃|380|390|380|380|370|390|380|390|390；pX/ΣX, %|23.8|23.7|23.8|23.7|23.9|23.8|23.9|23.9|23.8；二甲苯损失,%|3.8|2.7|4.1|1.8|1.6|1.3|1.8|1.5|1.4；乙苯转化率,%|41.5|39.4|40.6|46.5|45.1|44.1|45.8|44.6|43.5。[0059] pX 表示对二甲苯,∑ X表示二甲苯总量。"
+      },
+      {
+        "id": "test_9",
+        "type": "testing",
+        "catalyst_id": "chem_e_6",
+        "description": "C8 aromatic isomerization and ethylbenzene conversion test for E-6 at 390°C",
+        "conditions_json": {
+          "experimental_setup": {
+            "value": "中试装置",
+            "unit": "descriptive"
+          },
+          "catalyst_volume": {
+            "value": 100,
+            "unit": "mL"
+          },
+          "quartz_sand_dilution_volume": {
+            "value": 100,
+            "unit": "mL"
+          },
+          "pretreatment_atmosphere": {
+            "value": "氢气",
+            "unit": "gas atmosphere"
+          },
+          "pretreatment_temperature": {
+            "value": 653,
+            "unit": "K"
+          },
+          "pretreatment_time": {
+            "value": 4,
+            "unit": "h"
+          },
+          "ethylbenzene_in_feed": {
+            "value": 7.9,
+            "unit": "vol%"
+          },
+          "para_xylene_in_feed": {
+            "value": 0.1,
+            "unit": "vol%"
+          },
+          "meta_xylene_in_feed": {
+            "value": 70.2,
+            "unit": "vol%"
+          },
+          "ortho_xylene_in_feed": {
+            "value": 21.8,
+            "unit": "vol%"
+          },
+          "reaction_pressure": {
+            "value": 1.0,
+            "unit": "MPa"
+          },
+          "WHSV": {
+            "value": 20,
+            "unit": "h^-1"
+          },
+          "hydrogen_to_hydrocarbon_molar_ratio": {
+            "value": "2:1",
+            "unit": "molar ratio"
+          },
+          "reaction_temperature": {
+            "value": 390,
+            "unit": "°C"
+          }
+        },
+        "results_json": {
+          "para_xylene_fraction_in_total_xylene": {
+            "value": 23.8,
+            "unit": "%"
+          },
+          "xylene_loss": {
+            "value": 1.4,
+            "unit": "%"
+          },
+          "ethylbenzene_conversion": {
+            "value": 43.5,
+            "unit": "%"
+          }
+        },
+        "source_text": "实验是在中试装置上完成,催化剂体积100ml,用100ml 石英砂稀释后装填入反应器,催化剂在进料前在653K氢气存在下还原 4h。表 1 原料性质(体积百分含量)：乙苯|7.9%、对二甲苯|0.1%、间二甲苯|70.2%、邻二甲苯|21.8%。表3催化剂运转条件及结果：催化剂编号|C-1|C-2|C-3|E-1|E-2|E-3|E-4|E-5|E-6；反应压力,MPa|||||1.0||||；WHSV, h|||||20||||；氢烃摩尔比|||||2: 1||||；反应温度,℃|380|390|380|380|370|390|380|390|390；pX/ΣX, %|23.8|23.7|23.8|23.7|23.9|23.8|23.9|23.9|23.8；二甲苯损失,%|3.8|2.7|4.1|1.8|1.6|1.3|1.8|1.5|1.4；乙苯转化率,%|41.5|39.4|40.6|46.5|45.1|44.1|45.8|44.6|43.5。[0059] pX 表示对二甲苯,∑ X表示二甲苯总量。"
+      }
+    ],
+    "edges": [
+      {
+        "id": "edge_tested_chem_c_1_test_1",
+        "type": "tested_in",
+        "source_id": "chem_c_1",
+        "target_id": "test_1",
+        "properties": {}
+      },
+      {
+        "id": "edge_tested_chem_c_2_test_2",
+        "type": "tested_in",
+        "source_id": "chem_c_2",
+        "target_id": "test_2",
+        "properties": {}
+      },
+      {
+        "id": "edge_tested_chem_c_3_test_3",
+        "type": "tested_in",
+        "source_id": "chem_c_3",
+        "target_id": "test_3",
+        "properties": {}
+      },
+      {
+        "id": "edge_tested_chem_e_1_test_4",
+        "type": "tested_in",
+        "source_id": "chem_e_1",
+        "target_id": "test_4",
+        "properties": {}
+      },
+      {
+        "id": "edge_tested_chem_e_2_test_5",
+        "type": "tested_in",
+        "source_id": "chem_e_2",
+        "target_id": "test_5",
+        "properties": {}
+      },
+      {
+        "id": "edge_tested_chem_e_3_test_6",
+        "type": "tested_in",
+        "source_id": "chem_e_3",
+        "target_id": "test_6",
+        "properties": {}
+      },
+      {
+        "id": "edge_tested_chem_e_4_test_7",
+        "type": "tested_in",
+        "source_id": "chem_e_4",
+        "target_id": "test_7",
+        "properties": {}
+      },
+      {
+        "id": "edge_tested_chem_e_5_test_8",
+        "type": "tested_in",
+        "source_id": "chem_e_5",
+        "target_id": "test_8",
+        "properties": {}
+      },
+      {
+        "id": "edge_tested_chem_e_6_test_9",
+        "type": "tested_in",
+        "source_id": "chem_e_6",
+        "target_id": "test_9",
+        "properties": {}
+      }
+    ]
+  },
+  "characterization": {
+    "nodes": [
+      {
+        "id": "char_1",
+        "type": "characterization",
+        "method_name": "N2 adsorption",
+        "is_reported": true,
+        "characterization_summary": "Low-temperature N2 adsorption shows catalyst C-1 has a surface area of 152 m2/g and a pore volume of 0.25 ml/g.",
+        "evidence_snippet": "本发明催化剂的理化性质如下:比表面为80~150m2/g,孔容为 0.25~0.60ml/g(采用 ASAP2400 低温氮吸附仪测得比表面和孔容) ... C-1|0.4|0.8|-|-|152|0.25"
+      },
+      {
+        "id": "char_2",
+        "type": "characterization",
+        "method_name": "N2 adsorption",
+        "is_reported": true,
+        "characterization_summary": "Low-temperature N2 adsorption shows catalyst C-2 has a surface area of 160 m2/g and a pore volume of 0.26 ml/g.",
+        "evidence_snippet": "本发明催化剂的理化性质如下:比表面为80~150m2/g,孔容为 0.25~0.60ml/g(采用 ASAP2400 低温氮吸附仪测得比表面和孔容) ... C-2|1.0|-|-|1.4|160|0.26"
+      },
+      {
+        "id": "char_3",
+        "type": "characterization",
+        "method_name": "N2 adsorption",
+        "is_reported": true,
+        "characterization_summary": "Low-temperature N2 adsorption shows catalyst C-3 has a surface area of 168 m2/g and a pore volume of 0.23 ml/g.",
+        "evidence_snippet": "本发明催化剂的理化性质如下:比表面为80~150m2/g,孔容为 0.25~0.60ml/g(采用 ASAP2400 低温氮吸附仪测得比表面和孔容) ... C-3|-|1.2|-|-|168|0.23"
+      },
+      {
+        "id": "char_4",
+        "type": "characterization",
+        "method_name": "N2 adsorption",
+        "is_reported": true,
+        "characterization_summary": "Low-temperature N2 adsorption shows catalyst E-1 has a surface area of 180 m2/g and a pore volume of 0.28 ml/g.",
+        "evidence_snippet": "本发明催化剂的理化性质如下:比表面为80~150m2/g,孔容为 0.25~0.60ml/g(采用 ASAP2400 低温氮吸附仪测得比表面和孔容) ... E-1|0.6|-|2.4|-|180|0. 28"
+      },
+      {
+        "id": "char_5",
+        "type": "characterization",
+        "method_name": "N2 adsorption",
+        "is_reported": true,
+        "characterization_summary": "Low-temperature N2 adsorption shows catalyst E-2 has a surface area of 192 m2/g and a pore volume of 0.27 ml/g.",
+        "evidence_snippet": "本发明催化剂的理化性质如下:比表面为80~150m2/g,孔容为 0.25~0.60ml/g(采用 ASAP2400 低温氮吸附仪测得比表面和孔容) ... E-2|-|0.8|0.6|-|192|0.27"
+      },
+      {
+        "id": "char_6",
+        "type": "characterization",
+        "method_name": "N2 adsorption",
+        "is_reported": true,
+        "characterization_summary": "Low-temperature N2 adsorption shows catalyst E-3 has a surface area of 198 m2/g and a pore volume of 0.23 ml/g.",
+        "evidence_snippet": "本发明催化剂的理化性质如下:比表面为80~150m2/g,孔容为 0.25~0.60ml/g(采用 ASAP2400 低温氮吸附仪测得比表面和孔容) ... E-3|0.3|-|4.7|2.2|198|0.23"
+      },
+      {
+        "id": "char_7",
+        "type": "characterization",
+        "method_name": "N2 adsorption",
+        "is_reported": true,
+        "characterization_summary": "Low-temperature N2 adsorption shows catalyst E-4 has a surface area of 202 m2/g and a pore volume of 0.25 ml/g.",
+        "evidence_snippet": "本发明催化剂的理化性质如下:比表面为80~150m2/g,孔容为 0.25~0.60ml/g(采用 ASAP2400 低温氮吸附仪测得比表面和孔容) ... E-4|0.5|0.4|1.2|-|202|0.25"
+      },
+      {
+        "id": "char_8",
+        "type": "characterization",
+        "method_name": "N2 adsorption",
+        "is_reported": true,
+        "characterization_summary": "Low-temperature N2 adsorption shows catalyst E-5 has a surface area of 210 m2/g and a pore volume of 0.30 ml/g.",
+        "evidence_snippet": "本发明催化剂的理化性质如下:比表面为80~150m2/g,孔容为 0.25~0.60ml/g(采用 ASAP2400 低温氮吸附仪测得比表面和孔容) ... E-5|1.4|0.1|3.1|0.5|210|0. 30"
+      },
+      {
+        "id": "char_9",
+        "type": "characterization",
+        "method_name": "N2 adsorption",
+        "is_reported": true,
+        "characterization_summary": "Low-temperature N2 adsorption shows catalyst E-6 has a surface area of 220 m2/g and a pore volume of 0.31 ml/g.",
+        "evidence_snippet": "本发明催化剂的理化性质如下:比表面为80~150m2/g,孔容为 0.25~0.60ml/g(采用 ASAP2400 低温氮吸附仪测得比表面和孔容) ... E-6|-|1.8|0.2|1.0|220|0.31"
+      }
+    ],
+    "edges": [
+      {
+        "id": "edge_characterized_chem_c_1_char_1",
+        "type": "characterized_in",
+        "source_id": "chem_c_1",
+        "target_id": "char_1",
+        "properties": {}
+      },
+      {
+        "id": "edge_characterized_chem_c_2_char_2",
+        "type": "characterized_in",
+        "source_id": "chem_c_2",
+        "target_id": "char_2",
+        "properties": {}
+      },
+      {
+        "id": "edge_characterized_chem_c_3_char_3",
+        "type": "characterized_in",
+        "source_id": "chem_c_3",
+        "target_id": "char_3",
+        "properties": {}
+      },
+      {
+        "id": "edge_characterized_chem_e_1_char_4",
+        "type": "characterized_in",
+        "source_id": "chem_e_1",
+        "target_id": "char_4",
+        "properties": {}
+      },
+      {
+        "id": "edge_characterized_chem_e_2_char_5",
+        "type": "characterized_in",
+        "source_id": "chem_e_2",
+        "target_id": "char_5",
+        "properties": {}
+      },
+      {
+        "id": "edge_characterized_chem_e_3_char_6",
+        "type": "characterized_in",
+        "source_id": "chem_e_3",
+        "target_id": "char_6",
+        "properties": {}
+      },
+      {
+        "id": "edge_characterized_chem_e_4_char_7",
+        "type": "characterized_in",
+        "source_id": "chem_e_4",
+        "target_id": "char_7",
+        "properties": {}
+      },
+      {
+        "id": "edge_characterized_chem_e_5_char_8",
+        "type": "characterized_in",
+        "source_id": "chem_e_5",
+        "target_id": "char_8",
+        "properties": {}
+      },
+      {
+        "id": "edge_characterized_chem_e_6_char_9",
+        "type": "characterized_in",
+        "source_id": "chem_e_6",
+        "target_id": "char_9",
+        "properties": {}
+      }
+    ]
+  }
+}
