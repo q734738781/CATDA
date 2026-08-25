@@ -5,7 +5,7 @@
 DOI link: https://doi.org/10.1021/acscatal.5c06431 (Available after proof)
 
 ## Quickstart: Usage and Environment
-
+**Important Note:** In the age of LLM, you can use agents (e.g. codex) to read this readme and set up environment interactively. Even fix bugs for version change in dependent package!
 - **Models supported**: `openai_*`, `google_*`, `deepseek_*`, `openrouter_*` (set the matching API key)
 - **Primary scripts**:
   - `python -m CATDA.extract_main`: extract CatGraph and/or generate ML dataset
